@@ -45,6 +45,9 @@ class UserTest {
 		assertNotNull(user);
 		assertEquals("admin", user.getUsername());
 		assertEquals("admin", user.getPassword());
+		assertEquals("Owner",user.getFirstName());
+		assertEquals("larry",user.getLastName());
+		assertEquals("I like to eat",user.getUserBio());
 		
 	}
 
