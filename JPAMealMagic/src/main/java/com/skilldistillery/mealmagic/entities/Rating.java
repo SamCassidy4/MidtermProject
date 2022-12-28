@@ -3,31 +3,25 @@ package com.skilldistillery.mealmagic.entities;
 import java.util.Objects;
 
 import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 @Entity
 public class Rating {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="rating")
-	private int id;
+	@EmbeddedId
+	private RatingId id;
 	
-	@Column(name="rate_comment")
+	@Column(name = "rate_comment")
 	private Integer comment;
+	
+	private Integer rating;
 
-	public Rating() {
-		super();
-	}
-
-	public int getId() {
+	public RatingId getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(RatingId id) {
 		this.id = id;
 	}
 
@@ -39,9 +33,17 @@ public class Rating {
 		this.comment = comment;
 	}
 
+	public Integer getRating() {
+		return rating;
+	}
+
+	public void setRating(Integer rating) {
+		this.rating = rating;
+	}
+
 	@Override
 	public String toString() {
-		return "Rating [id=" + id + ", comment=" + comment + "]";
+		return "Rating [id=" + id + ", comment=" + comment + ", rating=" + rating + "]";
 	}
 
 	@Override
@@ -58,9 +60,8 @@ public class Rating {
 		if (getClass() != obj.getClass())
 			return false;
 		Rating other = (Rating) obj;
-		return id == other.id;
+		return Objects.equals(id, other.id);
 	}
-
 	
 	
 	

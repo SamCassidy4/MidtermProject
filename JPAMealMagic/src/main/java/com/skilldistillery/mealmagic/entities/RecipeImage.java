@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -19,6 +21,10 @@ public class RecipeImage {
 	
 	@Column(name="image_url")
 	private String imageUrl;
+	
+	@ManyToOne
+	@JoinColumn(name="recipe_id")
+	private Recipe recipe;
 
 	public RecipeImage() {
 		super();
@@ -38,6 +44,14 @@ public class RecipeImage {
 
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
+	}
+
+	public Recipe getRecipe() {
+		return recipe;
+	}
+
+	public void setRecipe(Recipe recipe) {
+		this.recipe = recipe;
 	}
 
 	@Override

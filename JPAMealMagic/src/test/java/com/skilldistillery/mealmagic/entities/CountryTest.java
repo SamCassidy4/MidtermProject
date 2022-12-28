@@ -47,4 +47,8 @@ class CountryTest {
 		assertEquals("mid-west",country.getRegion());
 
 	}
+	@Test
+	void test_Country_OneToMany_mapping() {
+		assertNotNull(country.getRecipes());
+	}
 }

@@ -12,9 +12,10 @@
     <class>com.skilldistillery.mealmagic.entities.Recipe</class>
     <class>com.skilldistillery.mealmagic.entities.RecipeImage</class>
     <class>com.skilldistillery.mealmagic.entities.Comment</class>
-    <class>com.skilldistillery.mealmagic.entities.Rating</class>
     <class>com.skilldistillery.mealmagic.entities.Category</class>
     <class>com.skilldistillery.mealmagic.entities.DietaryPreference</class>
+    <class>com.skilldistillery.mealmagic.entities.RatingId</class>
+     <class>com.skilldistillery.mealmagic.entities.Rating</class>
     
 	<!-- Ending Entities  -->
     <properties>

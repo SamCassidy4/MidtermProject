@@ -1,10 +1,14 @@
 package com.skilldistillery.mealmagic.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 
@@ -17,6 +21,10 @@ public class DietaryPreference {
 	private int id;
 	
 	private String name;
+	
+	@ManyToMany
+	@JoinTable(name="dietary_preference_has_recipe", joinColumns=@JoinColumn(name="dietary_preferences_id"), inverseJoinColumns=@JoinColumn(name="recipe_id"))
+	private List<Recipe> recipes;
 
 	public DietaryPreference() {
 		super();
@@ -36,6 +44,14 @@ public class DietaryPreference {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public List<Recipe> getRecipes() {
+		return recipes;
+	}
+
+	public void setRecipes(List<Recipe> recipes) {
+		this.recipes = recipes;
 	}
 
 	@Override

@@ -50,5 +50,10 @@ class UserTest {
 		assertEquals("I like to eat",user.getUserBio());
 		
 	}
+	@Test
+	void test_User_ManyToMany_mapping() {
+		assertNotNull(user.getRecipes());
+		assertNotNull(user.getComments());
+	}
 
 }

@@ -44,6 +44,8 @@ class IngredientTest {
 	void inital_test_Ingredient_entity_mapping() {
 		assertNotNull(ingredient);
 		assertEquals("pumpkin",ingredient.getName());
+		assertNotNull(ingredient.getRecipes());
+		assertTrue(ingredient.getRecipes().size() > 0);
 		
 
 	}

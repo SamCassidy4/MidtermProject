@@ -1,11 +1,15 @@
 package com.skilldistillery.mealmagic.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Category {
@@ -15,6 +19,11 @@ public class Category {
 	private int id;
 	
 	private String name;
+	
+	@ManyToMany
+	@JoinTable(name="category_has_recipe",joinColumns=@JoinColumn(name="category_id"),inverseJoinColumns=@JoinColumn(name="recipe_id"))
+	private List<Recipe> recipes;
+	
 
 	public Category() {
 		super();
@@ -34,6 +43,14 @@ public class Category {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public List<Recipe> getRecipes() {
+		return recipes;
+	}
+
+	public void setRecipes(List<Recipe> recipes) {
+		this.recipes = recipes;
 	}
 
 	@Override

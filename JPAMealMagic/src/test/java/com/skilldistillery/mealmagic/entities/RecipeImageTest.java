@@ -45,4 +45,8 @@ class RecipeImageTest {
 		assertNotNull(recipeImage);
 
 	}
+	@Test
+	void test_RecipeImage_ManyToOne_entity_mapping() {
+		assertNotNull(recipeImage.getRecipe());
+	}
 }

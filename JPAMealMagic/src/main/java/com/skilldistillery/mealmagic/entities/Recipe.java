@@ -1,5 +1,6 @@
 package com.skilldistillery.mealmagic.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -7,6 +8,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Recipe {
@@ -40,6 +45,27 @@ public class Recipe {
 	@Column(name="cook_time")
 	private String cookTime;
 	
+	@ManyToMany(mappedBy="recipes")
+	private List<Ingredient> ingredients;
+	
+	@ManyToMany(mappedBy="recipes")
+	private List<Category> categories;
+	
+	@ManyToMany(mappedBy="recipes")
+	private List<DietaryPreference> dietaryPreferences;
+	
+	@ManyToMany(mappedBy="recipes")
+	private List<User> users;
+	
+	@OneToMany(mappedBy="recipe")
+	private List<RecipeImage> images;
+	
+	@OneToMany(mappedBy="recipe")
+	private List<Comment> comments;
+	
+	@ManyToOne
+	@JoinColumn(name="country_id")
+	private Country country;
 
 	public Recipe() {
 		super();
@@ -129,8 +155,64 @@ public class Recipe {
 		return cookTime;
 	}
 
+	public List<Ingredient> getIngredients() {
+		return ingredients;
+	}
+
+	public void setIngredients(List<Ingredient> ingredients) {
+		this.ingredients = ingredients;
+	}
+
 	public void setCookTime(String cookTime) {
 		this.cookTime = cookTime;
+	}
+
+	public List<Category> getCategories() {
+		return categories;
+	}
+
+	public void setCategories(List<Category> categories) {
+		this.categories = categories;
+	}
+
+	public List<DietaryPreference> getDietaryPreferences() {
+		return dietaryPreferences;
+	}
+
+	public void setDietaryPreferences(List<DietaryPreference> dietaryPreferences) {
+		this.dietaryPreferences = dietaryPreferences;
+	}
+
+	public List<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
+
+	public List<RecipeImage> getImages() {
+		return images;
+	}
+
+	public void setImages(List<RecipeImage> images) {
+		this.images = images;
+	}
+
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
+
+	public Country getCountry() {
+		return country;
+	}
+
+	public void setCountry(Country country) {
+		this.country = country;
 	}
 
 	@Override
