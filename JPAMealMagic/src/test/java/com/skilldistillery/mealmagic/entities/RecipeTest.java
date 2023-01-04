@@ -49,22 +49,18 @@ class RecipeTest {
 		assertNotNull(recipe.getDescription());
 		assertEquals(250, recipe.getCalories());
 		assertEquals("8",recipe.getNumberOfServing());
-		//assertEquals("8",rec);
 		
-		
-		
-
 	}
 	@Test
 	void test_Recipe_ManyToMany_mapping() {
 		assertNotNull(recipe.getCategories());
 		assertEquals(1, recipe.getId());
-		//assertTrue(recipe.getCategories().size() > 0);
+		assertTrue(recipe.getCategories().size() > 0);
 		assertNotNull(recipe.getIngredients());
 		assertTrue(recipe.getIngredients().size() > 0);
 		assertNotNull(recipe.getDietaryPreferences());
 		assertNotNull(recipe.getUsers());
-		//assertTrue(recipe.getUsers().size() > 0);
+		assertTrue(recipe.getUsers().size() > 0);
 		assertNotNull(recipe.getImages());
 		assertNotNull(recipe.getComments());
 		assertNotNull(recipe.getCountry());

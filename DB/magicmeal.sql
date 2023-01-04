@@ -404,3 +404,33 @@ INSERT INTO `dietary_preference` (`id`, `name`, `description`) VALUES (1, 'dairy
 
 COMMIT;
 
+
+-- -----------------------------------------------------
+-- Data for table `dietary_preference_has_recipe`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `mealmagicdb`;
+INSERT INTO `dietary_preference_has_recipe` (`dietary_preferences_id`, `recipe_id`) VALUES (1, 1);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `category_has_recipe`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `mealmagicdb`;
+INSERT INTO `category_has_recipe` (`category_id`, `recipe_id`) VALUES (1, 1);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `user_has_favorite`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `mealmagicdb`;
+INSERT INTO `user_has_favorite` (`user_id`, `recipe_id`) VALUES (1, 1);
+
+COMMIT;
+
