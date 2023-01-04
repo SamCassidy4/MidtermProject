@@ -64,5 +64,10 @@ class RecipeTest {
 		assertNotNull(recipe.getImages());
 		assertNotNull(recipe.getComments());
 		assertNotNull(recipe.getCountry());
+		assertNotNull(recipe.getRatings());
+		assertTrue(recipe.getRatings().size() > 0);
+		assertEquals(5, recipe.getRatings().get(0).getRating());
+		assertEquals(1, recipe.getRatings().get(0).getRecipe().getId());
+		assertEquals(1, recipe.getUser().getId());
 	}
 }

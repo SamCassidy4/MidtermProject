@@ -49,10 +49,34 @@ public class User {
 	
 	@ManyToMany
 	@JoinTable(name="user_has_favorite", joinColumns=@JoinColumn(name="user_id"),inverseJoinColumns=@JoinColumn(name="recipe_id"))
-	private List<Recipe> recipes;
+	private List<Recipe> favoriteRecipes;
 	
 	@OneToMany(mappedBy="user")
 	private List<Comment> comments;
+	
+	@OneToMany(mappedBy="user")
+	private List<Rating> ratings;
+	
+	@OneToMany(mappedBy="user")
+	private List<Recipe> recipes;
+	
+	
+	
+	public List<Recipe> getRecipes() {
+		return recipes;
+	}
+
+	public void setRecipes(List<Recipe> recipes) {
+		this.recipes = recipes;
+	}
+
+	public List<Rating> getRatings() {
+		return ratings;
+	}
+
+	public void setRatings(List<Rating> ratings) {
+		this.ratings = ratings;
+	}
 
 	public User() {
 		super();
@@ -149,12 +173,12 @@ public class User {
 		this.imageUrl = imageUrl;
 	}
 
-	public List<Recipe> getRecipes() {
-		return recipes;
+	public List<Recipe> getFavoriteRecipes() {
+		return favoriteRecipes;
 	}
 
-	public void setRecipes(List<Recipe> recipes) {
-		this.recipes = recipes;
+	public void setFavoriteRecipes(List<Recipe> recipes) {
+		this.favoriteRecipes = recipes;
 	}
 
 	public List<Comment> getComments() {

@@ -2,6 +2,7 @@ package com.skilldistillery.mealmagic.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -45,6 +46,10 @@ class RatingTest {
 	void inital_test_Rating_entity_mapping() {
 		assertNotNull(rating);
 		assertEquals(5, rating.getComment());
-
+		assertEquals(1, rating.getUser().getId());
+		assertEquals(1, rating.getRecipe().getId());
+		assertEquals("Pumpkin Pie", rating.getRecipe().getName());
+		assertTrue(rating.getRecipe().getUsers().size() > 0);
+		
 	}
 }

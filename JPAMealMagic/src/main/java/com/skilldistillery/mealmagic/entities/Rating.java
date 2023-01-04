@@ -1,10 +1,14 @@
 package com.skilldistillery.mealmagic.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 
 @Entity
 public class Rating {
@@ -16,6 +20,34 @@ public class Rating {
 	private Integer comment;
 	
 	private Integer rating;
+	
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	@MapsId(value = "userId")
+	private User user;
+	
+	@ManyToOne
+	@JoinColumn(name="recipe_id")
+	@MapsId(value = "recipeId")
+	private Recipe recipe;
+	
+	
+
+	public Recipe getRecipe() {
+		return recipe;
+	}
+
+	public void setRecipe(Recipe recipe) {
+		this.recipe = recipe;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 	public RatingId getId() {
 		return id;

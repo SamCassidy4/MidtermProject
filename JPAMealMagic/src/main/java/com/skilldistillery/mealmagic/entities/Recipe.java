@@ -54,7 +54,7 @@ public class Recipe {
 	@ManyToMany(mappedBy="recipes")
 	private List<DietaryPreference> dietaryPreferences;
 	
-	@ManyToMany(mappedBy="recipes")
+	@ManyToMany(mappedBy="favoriteRecipes")
 	private List<User> users;
 	
 	@OneToMany(mappedBy="recipe")
@@ -63,9 +63,37 @@ public class Recipe {
 	@OneToMany(mappedBy="recipe")
 	private List<Comment> comments;
 	
+	
+	@OneToMany(mappedBy="recipe")
+	private List<Rating> ratings;
+	
 	@ManyToOne
 	@JoinColumn(name="country_id")
 	private Country country;
+	
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User user;
+	
+	
+	
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public List<Rating> getRatings() {
+		return ratings;
+	}
+
+	public void setRatings(List<Rating> ratings) {
+		this.ratings = ratings;
+	}
+
+
 
 	public Recipe() {
 		super();

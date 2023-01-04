@@ -2,6 +2,7 @@ package com.skilldistillery.mealmagic.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -55,6 +56,8 @@ class UserTest {
 	@Test
 	void test_User_entity_mapping() {
 		assertNotNull(user);
+		assertTrue(user.getRatings().size() > 0);
+	//	assertNotNull(user.getUserRecipes());
 	//	assertEquals("admin", user.);
 		
 		
@@ -62,8 +65,9 @@ class UserTest {
 	}
 	@Test
 	void test_User_ManyToMany_mapping() {
-		assertNotNull(user.getRecipes());
+		assertNotNull(user.getFavoriteRecipes());
 		assertNotNull(user.getComments());
+		assertTrue(user.getFavoriteRecipes().size() > 0);
 	}
 
 }
