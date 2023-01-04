@@ -1,11 +1,13 @@
 package com.skilldistillery.mealmagic.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Country {
@@ -19,6 +21,9 @@ public class Country {
 	private String continent;
 	
 	private String region;
+	
+	@OneToMany(mappedBy="country")
+	private List<Recipe> recipes;
 	
 	
 
@@ -56,6 +61,14 @@ public class Country {
 
 	public void setRegion(String region) {
 		this.region = region;
+	}
+
+	public List<Recipe> getRecipes() {
+		return recipes;
+	}
+
+	public void setRecipes(List<Recipe> recipes) {
+		this.recipes = recipes;
 	}
 
 	@Override

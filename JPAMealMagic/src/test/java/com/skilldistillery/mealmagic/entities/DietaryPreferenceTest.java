@@ -46,4 +46,9 @@ class DietaryPreferenceTest {
 		assertEquals("dairy",dp.getName());
 
 	}
+	@Test
+	void test_DietaryPreference_ManyToMany_mapping() {
+		assertNotNull(dp.getRecipes());
+		//assertTrue(dp.getRecipes().size() > 0);
+	}
 }

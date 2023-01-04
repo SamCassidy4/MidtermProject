@@ -1,6 +1,8 @@
 package com.skilldistillery.mealmagic.entities;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -52,5 +54,19 @@ class RecipeTest {
 		
 		
 
+	}
+	@Test
+	void test_Recipe_ManyToMany_mapping() {
+		assertNotNull(recipe.getCategories());
+		assertEquals(1, recipe.getId());
+		//assertTrue(recipe.getCategories().size() > 0);
+		assertNotNull(recipe.getIngredients());
+		assertTrue(recipe.getIngredients().size() > 0);
+		assertNotNull(recipe.getDietaryPreferences());
+		assertNotNull(recipe.getUsers());
+		//assertTrue(recipe.getUsers().size() > 0);
+		assertNotNull(recipe.getImages());
+		assertNotNull(recipe.getComments());
+		assertNotNull(recipe.getCountry());
 	}
 }

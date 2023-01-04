@@ -60,5 +60,10 @@ class UserTest {
 		
 		
 	}
+	@Test
+	void test_User_ManyToMany_mapping() {
+		assertNotNull(user.getRecipes());
+		assertNotNull(user.getComments());
+	}
 
 }

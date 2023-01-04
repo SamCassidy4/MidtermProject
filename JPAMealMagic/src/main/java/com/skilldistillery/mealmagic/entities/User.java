@@ -1,7 +1,7 @@
 package com.skilldistillery.mealmagic.entities;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -9,6 +9,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 @Entity
 public class User {
@@ -42,6 +46,13 @@ public class User {
 	
 	@Column(name="image_url")
 	private String imageUrl;
+	
+	@ManyToMany
+	@JoinTable(name="user_has_favorite", joinColumns=@JoinColumn(name="user_id"),inverseJoinColumns=@JoinColumn(name="recipe_id"))
+	private List<Recipe> recipes;
+	
+	@OneToMany(mappedBy="user")
+	private List<Comment> comments;
 
 	public User() {
 		super();
@@ -136,6 +147,22 @@ public class User {
 
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
+	}
+
+	public List<Recipe> getRecipes() {
+		return recipes;
+	}
+
+	public void setRecipes(List<Recipe> recipes) {
+		this.recipes = recipes;
+	}
+
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
 	}
 
 	@Override

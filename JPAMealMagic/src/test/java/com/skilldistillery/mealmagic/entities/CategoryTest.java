@@ -44,6 +44,8 @@ class CategoryTest {
 	void inital_test_Category_entity_mapping() {
 		assertNotNull(category);
 		assertEquals("dessert",category.getName());
+		assertNotNull(category.getRecipes());
+		assertEquals(1,category.getId());
 
 	}
 }

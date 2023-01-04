@@ -1,6 +1,7 @@
 package com.skilldistillery.mealmagic.entities;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -31,7 +32,7 @@ class RatingTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		rating = em.find(Rating.class, 1);
+		rating = em.find(Rating.class, new RatingId(1,1));
 	}
 
 	@AfterEach
@@ -44,9 +45,6 @@ class RatingTest {
 	void inital_test_Rating_entity_mapping() {
 		assertNotNull(rating);
 		assertEquals(5, rating.getComment());
-		
 
 	}
 }
-
-

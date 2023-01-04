@@ -44,7 +44,10 @@ class CommentTest {
 	void inital_test_Comment_entity_mapping() {
 		assertNotNull(comment);
 		assertEquals("This is the best pie ever",comment.getRemark());
-		
-
+	}
+	@Test
+	void test_Comment_ManyToOne_mapping() {
+		assertNotNull(comment.getRecipe());
+		assertNotNull(comment.getUser());
 	}
 }

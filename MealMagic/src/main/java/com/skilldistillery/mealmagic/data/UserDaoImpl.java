@@ -7,7 +7,6 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
-import com.skilldistillery.mealmagic.entities.Category;
 import com.skilldistillery.mealmagic.entities.User;
 
 @Service
@@ -18,9 +17,9 @@ public class UserDaoImpl implements UserDAO {
 	private EntityManager em;
 
 	@Override
-	public Category findById(int userId) {
+	public User findById(int userId) {
 		
-		return em.find(Category.class, userId);
+		return em.find(User.class, userId);
 	}
 
 	@Override
