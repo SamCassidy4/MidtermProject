@@ -47,6 +47,8 @@ class RecipeTest {
 		assertNotNull(recipe.getDescription());
 		assertEquals(250, recipe.getCalories());
 		assertEquals("8",recipe.getNumberOfServing());
+		//assertEquals("8",rec);
+		
 		
 		
 

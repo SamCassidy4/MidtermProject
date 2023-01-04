@@ -49,6 +49,16 @@ class UserTest {
 		assertEquals("larry",user.getLastName());
 		assertEquals("I like to eat",user.getUserBio());
 		
+		
+		
+	}
+	@Test
+	void test_User_entity_mapping() {
+		assertNotNull(user);
+	//	assertEquals("admin", user.);
+		
+		
+		
 	}
 
 }

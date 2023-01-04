@@ -43,6 +43,8 @@ class RatingTest {
 	@Test
 	void inital_test_Rating_entity_mapping() {
 		assertNotNull(rating);
+		assertEquals(5, rating.getComment());
+		
 
 	}
 }
