@@ -20,7 +20,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="searchName.do">Account</a>
+        <a class="nav-link active" aria-current="page" href="account.do">Account</a>
         <a class="nav-link" href="login.do">Login</a>
         <a class="nav-link" href="findrecipes.do">Find Recipes</a>
         <a class="nav-link" href="uploadrecipes.do">Upload New Recipe</a>
