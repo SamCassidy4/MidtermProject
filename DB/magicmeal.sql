@@ -172,7 +172,7 @@ DROP TABLE IF EXISTS `rating` ;
 
 CREATE TABLE IF NOT EXISTS `rating` (
   `rating` INT NOT NULL,
-  `recipe_id` INT NOT NULL,
+  `recipe_id` INT NOT NULL AUTO_INCREMENT,
   `user_id` INT NOT NULL,
   `rate_comment` INT NULL,
   INDEX `fk_Rating_recipe1_idx` (`recipe_id` ASC),
@@ -341,6 +341,16 @@ COMMIT;
 START TRANSACTION;
 USE `mealmagicdb`;
 INSERT INTO `ingredient` (`id`, `name`, `image_url`, `description`) VALUES (1, 'pumpkin', 'https://www.allrecipes.com/thmb/DXjy4ZXwgwPun42CBO-3f9-1358=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/23439-PerfectPumpkinPie_002-4x3-1-44d015659c5c4a0888238d8f22de2a5e.jpg', 'get pumpkin stuffing out and then put in oven');
+INSERT INTO `ingredient` (`id`, `name`, `image_url`, `description`) VALUES (2, 'sugar', NULL, NULL);
+INSERT INTO `ingredient` (`id`, `name`, `image_url`, `description`) VALUES (3, 'salt', NULL, NULL);
+INSERT INTO `ingredient` (`id`, `name`, `image_url`, `description`) VALUES (4, 'cinnamon', NULL, NULL);
+INSERT INTO `ingredient` (`id`, `name`, `image_url`, `description`) VALUES (5, 'ginger', NULL, NULL);
+INSERT INTO `ingredient` (`id`, `name`, `image_url`, `description`) VALUES (6, 'nutmeg', NULL, NULL);
+INSERT INTO `ingredient` (`id`, `name`, `image_url`, `description`) VALUES (7, 'clove', NULL, NULL);
+INSERT INTO `ingredient` (`id`, `name`, `image_url`, `description`) VALUES (8, 'egg', NULL, NULL);
+INSERT INTO `ingredient` (`id`, `name`, `image_url`, `description`) VALUES (9, 'milk', NULL, NULL);
+INSERT INTO `ingredient` (`id`, `name`, `image_url`, `description`) VALUES (10, 'evaporated milk', NULL, NULL);
+INSERT INTO `ingredient` (`id`, `name`, `image_url`, `description`) VALUES (11, 'pastry shell', NULL, NULL);
 
 COMMIT;
 
@@ -360,7 +370,17 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `mealmagicdb`;
-INSERT INTO `recipe_ingredient` (`recipe_id`, `ingredient_id`, `amount`, `food_prep`) VALUES (1, 1, '5', '1 chopped pumpkin');
+INSERT INTO `recipe_ingredient` (`recipe_id`, `ingredient_id`, `amount`, `food_prep`) VALUES (1, 1, '1 1/2 cups', '1 chopped pumpkin');
+INSERT INTO `recipe_ingredient` (`recipe_id`, `ingredient_id`, `amount`, `food_prep`) VALUES (1, 2, '3/4 cups', NULL);
+INSERT INTO `recipe_ingredient` (`recipe_id`, `ingredient_id`, `amount`, `food_prep`) VALUES (1, 3, '1/2 teaspoon', NULL);
+INSERT INTO `recipe_ingredient` (`recipe_id`, `ingredient_id`, `amount`, `food_prep`) VALUES (1, 4, '1 to 1 1/4 teaspoon', NULL);
+INSERT INTO `recipe_ingredient` (`recipe_id`, `ingredient_id`, `amount`, `food_prep`) VALUES (1, 5, '1/2 teaspoon', NULL);
+INSERT INTO `recipe_ingredient` (`recipe_id`, `ingredient_id`, `amount`, `food_prep`) VALUES (1, 6, '1/4 teaspoon', NULL);
+INSERT INTO `recipe_ingredient` (`recipe_id`, `ingredient_id`, `amount`, `food_prep`) VALUES (1, 7, '1/ 4 teaspoon', NULL);
+INSERT INTO `recipe_ingredient` (`recipe_id`, `ingredient_id`, `amount`, `food_prep`) VALUES (1, 8, '3', 'slightly beaten');
+INSERT INTO `recipe_ingredient` (`recipe_id`, `ingredient_id`, `amount`, `food_prep`) VALUES (1, 9, '1 1/4 cups', NULL);
+INSERT INTO `recipe_ingredient` (`recipe_id`, `ingredient_id`, `amount`, `food_prep`) VALUES (1, 10, '1x 6oz can', NULL);
+INSERT INTO `recipe_ingredient` (`recipe_id`, `ingredient_id`, `amount`, `food_prep`) VALUES (1, 11, '1x 9inch pastry shell', NULL);
 
 COMMIT;
 
