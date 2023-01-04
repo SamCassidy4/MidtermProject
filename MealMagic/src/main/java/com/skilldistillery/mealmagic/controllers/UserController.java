@@ -63,10 +63,6 @@ public class UserController {
 		return "logoutPage";
 	}
 	
-	@RequestMapping ("getRecipe.do")
-	public String showRecipe (Model model, int id) {
-	
-		return "showRecipe";
-	}
+
 	
 }
