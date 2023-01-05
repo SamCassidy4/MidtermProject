@@ -70,4 +70,9 @@ class RecipeTest {
 		assertEquals(1, recipe.getRatings().get(0).getRecipe().getId());
 		assertEquals(1, recipe.getUser().getId());
 	}
+	@Test
+	void test_recipe_ingredient() {
+		assertNotNull(recipe.getRecipeIngredients());
+		assertEquals("1 1/2 cups", recipe.getRecipeIngredients().get(0).getAmount());
+	}
 }

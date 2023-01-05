@@ -8,42 +8,39 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "recipe_ingredient")
 public class RecipeIngredient {
-	
+
 	@EmbeddedId
-    private RecipeId id;
-	
-	@Column(name="food_prep")
+	private RecipeIngredientId id;
+
+	private String amount;
+
+	@Column(name = "food_prep")
 	private String foodPrep;
-	
-    private String amount; 
-    
+
 	@ManyToOne
-	@JoinColumn(name="ingredient_id")
+	@JoinColumn(name = "ingredient_id")
 	@MapsId(value = "ingredientId")
 	private Ingredient ingredient;
-	
+
 	@ManyToOne
-	@JoinColumn(name="recipe_id")
+	@JoinColumn(name = "recipe_id")
 	@MapsId(value = "recipeId")
 	private Recipe recipe;
 
-	public RecipeId getId() {
+	public RecipeIngredient() {
+	}
+
+	public RecipeIngredientId getId() {
 		return id;
 	}
 
-	public void setId(RecipeId id) {
+	public void setId(RecipeIngredientId id) {
 		this.id = id;
-	}
-
-	public String getFoodPrep() {
-		return foodPrep;
-	}
-
-	public void setFoodPrep(String foodPrep) {
-		this.foodPrep = foodPrep;
 	}
 
 	public String getAmount() {
@@ -52,6 +49,14 @@ public class RecipeIngredient {
 
 	public void setAmount(String amount) {
 		this.amount = amount;
+	}
+
+	public String getFoodPrep() {
+		return foodPrep;
+	}
+
+	public void setFoodPrep(String foodPrep) {
+		this.foodPrep = foodPrep;
 	}
 
 	public Ingredient getIngredient() {
@@ -71,6 +76,12 @@ public class RecipeIngredient {
 	}
 
 	@Override
+	public String toString() {
+		return "RecipeIngredient [id=" + id + ", amount=" + amount + ", foodPrep=" + foodPrep + ", ingredient="
+				+ ingredient + ", recipe=" + recipe + "]";
+	}
+
+	@Override
 	public int hashCode() {
 		return Objects.hash(id);
 	}
@@ -87,11 +98,4 @@ public class RecipeIngredient {
 		return Objects.equals(id, other.id);
 	}
 
-	@Override
-	public String toString() {
-		return "RecipeIngredient [id=" + id + ", foodPrep=" + foodPrep + ", amount=" + amount + ", ingredient="
-				+ ingredient + ", recipe=" + recipe + "]";
-	}
-    
-    
 }

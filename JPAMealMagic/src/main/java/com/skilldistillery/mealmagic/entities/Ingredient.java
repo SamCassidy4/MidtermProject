@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Ingredient {
@@ -29,6 +30,19 @@ public class Ingredient {
 	@ManyToMany
 	@JoinTable(name="recipe_ingredient",joinColumns=@JoinColumn(name="ingredient_id"),inverseJoinColumns=@JoinColumn(name="recipe_id"))
 	private List<Recipe> recipes;
+
+	
+	@OneToMany (mappedBy = "ingredient")
+	private List<RecipeIngredient> recipeIngredients;
+	
+	
+	public List<RecipeIngredient> getRecipeIngredients() {
+		return recipeIngredients;
+	}
+
+	public void setRecipeIngredients(List<RecipeIngredient> recipeIngredients) {
+		this.recipeIngredients = recipeIngredients;
+	}
 
 	public Ingredient() {
 		super();

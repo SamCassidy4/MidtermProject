@@ -12,11 +12,11 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class IngredientTest {
+class RecipeIngredientTest {
 
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private Ingredient ingredient;
+	private RecipeIngredient ingredient;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -31,7 +31,7 @@ class IngredientTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		ingredient = em.find(Ingredient.class, 1);
+		ingredient = em.find(RecipeIngredient.class, new RecipeIngredientId(1,1));
 	}
 
 	@AfterEach
@@ -41,15 +41,10 @@ class IngredientTest {
 	}
 
 	@Test
-	void inital_test_Ingredient_entity_mapping() {
-		assertNotNull(ingredient);
-		assertEquals("pumpkin",ingredient.getName());
-		assertNotNull(ingredient.getRecipes());
-		assertTrue(ingredient.getRecipes().size() > 0);
-		assertTrue(ingredient.getRecipeIngredients().size() > 0);
-		assertEquals("Pumpkin Pie", ingredient.getRecipeIngredients().get(0).getIngredient().getRecipes().get(0).getName());
-		assertEquals("Pumpkin Pie", ingredient.getRecipeIngredients().get(0).getRecipe().getName());
-
-	}
+	void Test_RecipeIngredient_mapping (){
+	assertNotNull(ingredient);
+	assertEquals("1 1/2 cups", ingredient.getAmount());
+	assertEquals(1,ingredient.getRecipe().getId());
 
 }
+	}
