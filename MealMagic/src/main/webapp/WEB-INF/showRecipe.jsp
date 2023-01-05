@@ -16,31 +16,55 @@
 			<img src = "${recipe.imageUrl}"/>
 			<br>
 	<em><h3>Ingredients: </em></h3>
-	    ${recipe.getIngredients()}
-		<c:forEach var="ingredient" items="${recipe.getIngredients()}">
+	  
+		<c:forEach var="RecipeIngredient" items="${recipe.getRecipeIngredients()}">
 		<ul>
-		<li>${ingredient.name} </li>
+		<li>${RecipeIngredient.getIngredient().getName()}  ${RecipeIngredient.getAmount()} </li>
 		
-		<!--FIXME^^^^^^^^^^^ 	NEED AMOUNT to find each ingredient amount listed  -->
+		
 		</ul>
 		
 		</c:forEach>
 			<br>
 			<br>
 	<em> <h3>Description: </h3></em>
-		 <h4>${recipe.description}</h4>
+		 <h3></h3>${recipe.description}</h4>
 			 <br>
 			 <br>
 	<em><h3>Cooking Instructions:</h3></em>
 	 <h4>${recipe.cookingInstructions}</h4>
 	 <br>
-	 <br>
+	
+	<h3>Number of Servings: ${recipe.numberOfServing}</h3>
+	<br>
+	<h3>Cook Time: ${recipe.cookTime}</h3>
+	<br>
+	<h3>Country: ${recipe.country} </h3>
+	<br>
+	<h3>dietary Preference: ${recipe.dietaryPreferences} </h3>
+	<br>
+	<h3>notes: ${recipe.notes}</h3>
+	<br>
+	<h3>Prep Time: ${recipe.prepTime}</h3>
+	<br>
+	<h3>Ratings: ${recipe.ratings}</h3>
+<br>
+<h3>Shared By: ${recipe.user.getUsername()} </h3>
+<br>
+<h3>Yield: ${recipe.yield}</h3>
+
+<br>
+<h3>Calories: ${recipe.calories}</h3>
+<br>
+<h3>Categories: ${recipe.categories}</h3>
+<br>
+<h3>Comments:  ${recipe.comments}</h3>
 
 
 
 
 
-2:15
+
 </div>
 	
 	<br>
