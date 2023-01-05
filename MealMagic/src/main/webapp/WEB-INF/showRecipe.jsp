@@ -41,7 +41,9 @@
 	<br>
 	<h3>Country: ${recipe.country} </h3>
 	<br>
+	
 	<h3>dietary Preference: ${recipe.dietaryPreferences} </h3>
+	
 	<br>
 	<h3>notes: ${recipe.notes}</h3>
 	<br>

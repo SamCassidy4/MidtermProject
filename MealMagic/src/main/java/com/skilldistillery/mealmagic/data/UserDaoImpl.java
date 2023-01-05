@@ -25,6 +25,30 @@ public class UserDaoImpl implements UserDAO {
 	@Override
 	public User findByUsernameAndPassword(String username, String password) {
 		
+		String query = "SELECT u from User u where u.username=:username AND u.password =:password";
+		
+		User user = em.createQuery(query, User.class)
+				.setParameter("username", username)
+				.setParameter("password", password).getSingleResult();
+		
+		return user;
+	}
+
+	@Override
+	public User createUser(User user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User deleteUser(User user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User updateUser(User user) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 

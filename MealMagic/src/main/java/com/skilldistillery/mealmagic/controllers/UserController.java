@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.skilldistillery.mealmagic.data.UserDAO;
 import com.skilldistillery.mealmagic.entities.Recipe;
@@ -22,8 +24,13 @@ public class UserController {
 		
 		return "home";
 	}
-	@RequestMapping (path ="account.do")
-	public String acount(Model model) {
+	@RequestMapping (path ={"account.do"}, method = RequestMethod.GET)
+	public String acount(@RequestParam String username, @RequestParam String password, Model model) {
+		
+		User user = userDao.findByUsernameAndPassword(username, password);
+		
+		model.addAttribute("user", user);
+		
 		return "accountPage";
 	}
 	@RequestMapping(path = "login.do")
