@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -74,7 +75,6 @@ public class Recipe {
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User user;
-	
 	
 	
 	public User getUser() {

@@ -16,7 +16,15 @@
 			<img src = "${recipe.imageUrl}"/>
 			<br>
 	<em><h3>Ingredients: </em></h3>
-		<h4>${recipe.getIngredients().get(0).getName()}</h4>
+	    ${recipe.getIngredients()}
+		<c:forEach var="ingredient" items="${recipe.getIngredients()}">
+		<ul>
+		<li>${ingredient.name} </li>
+		
+		<!--FIXME^^^^^^^^^^^ 	NEED AMOUNT to find each ingredient amount listed  -->
+		</ul>
+		
+		</c:forEach>
 			<br>
 			<br>
 	<em> <h3>Description: </h3></em>

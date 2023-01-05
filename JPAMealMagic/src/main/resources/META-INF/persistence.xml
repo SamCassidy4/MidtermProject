@@ -16,6 +16,8 @@
     <class>com.skilldistillery.mealmagic.entities.DietaryPreference</class>
     <class>com.skilldistillery.mealmagic.entities.RatingId</class>
      <class>com.skilldistillery.mealmagic.entities.Rating</class>
+     <class>com.skilldistillery.mealmagic.entities.RecipeId</class>
+     <class>com.skilldistillery.mealmagic.entities.RecipeIngredient</class>
     
 	<!-- Ending Entities  -->
     <properties>
