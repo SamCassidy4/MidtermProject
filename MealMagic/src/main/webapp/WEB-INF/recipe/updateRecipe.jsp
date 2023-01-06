@@ -23,56 +23,56 @@
     
     <div class="form-group col-md-6">
       <label for="description">Description</label>
-      <input type="text" class="form-control" name="description" >
+      <input type="text" class="form-control" name="description" value="${recipe.description }">
     </div>
     
     
     
     <div class="form-group col-md-6">
       <label for="imageUrl">Image Url </label>
-      <input type="text" class="form-control" name="imageUrl" >
+      <input type="text" class="form-control" name="imageUrl" value="${recipe.imageUrl }" >
     </div>
     
     
     <div class="form-group col-md-6">
       <label for="cookingInstructions">Cooking Instructions</label>
-      <input type="text" class="form-control" name="cookingInstructions" >
+      <input type="text" class="form-control" name="cookingInstructions" value="${recipe.cookingInstructions }">
     </div>
     
     
     <div class="form-group col-md-6">
       <label for="numberOfServings">Number Of Servings</label>
-      <input type="text" class="form-control" name="numberOfServings">
+      <input type="text" class="form-control" name="numberOfServings" value ="${recipe.numberOfServing }">
     </div>
     
     
     <div class="form-group col-md-6">
       <label for="calories">Calories</label>
-      <input type="text" class="form-control" name="calories" >
+      <input type="text" class="form-control" name="calories" value="${recipe.calories }" >
     </div>
     
     
     <div class="form-group col-md-6">
       <label for="prepTime">Prep Time</label>
-      <input type="text" class="form-control" name="prepTime">
+      <input type="text" class="form-control" name="prepTime" value="${recipe.prepTime }">
     </div>
     
     
     <div class="form-group col-md-6">
       <label for="yield">Yield</label>
-      <input type="text" class="form-control" name="yield">
+      <input type="text" class="form-control" name="yield" value="${recipe.yield }">
     </div>
     
     
     <div class="form-group col-md-6">
       <label for="notes">Notes</label>
-      <input type="text" class="form-control" name="notes">
+      <input type="text" class="form-control" name="notes" value="${recipe.notes }">
     </div>
     
     
     <div class="form-group col-md-6">
       <label for="cookTime">Cook Time</label>
-      <input type="text" class="form-control" name="cookTime">
+      <input type="text" class="form-control" name="cookTime" value="${recipe.cookTime }">
     </div>
     
     

@@ -12,7 +12,7 @@ public Recipe createRecipe(Recipe recipe);
 
 public boolean deleteRecipe(int recipeId);
 
-public Recipe updateRecipe(Recipe recipe, int recipeId);
+public Recipe updateRecipe(int recipeId, Recipe recipe);
 
 public List<Recipe> findByKeyword(String keyword);
 

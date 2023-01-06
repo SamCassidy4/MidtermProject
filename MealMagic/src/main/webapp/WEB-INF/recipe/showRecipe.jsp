@@ -42,7 +42,7 @@
 	<h3>Country: ${recipe.country} </h3>
 	<br>
 	
-	<h3>dietary Preference: ${recipe.dietaryPreferences} </h3>
+	<h3>Dietary Preference: ${recipe.dietaryPreferences} </h3>
 	
 	<br>
 	<h3>notes: ${recipe.notes}</h3>
@@ -78,9 +78,9 @@
 	<br>
 	<br>
 	
-	<form action="update.do" method="GET">
+	<form action="updateView.do" method="GET">
 	<!-- <input type="radio" name="updateView" value="yes"><label>Yes</label> -->
-		<input type="text" hidden="true" name="id" value="${recipe.id}">
+		<input type="text" hidden="true" name="id"  value="${recipe.id}">
 		<input type="submit" value="Edit Recipe">
 	</form>
 
