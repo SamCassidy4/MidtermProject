@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>${recipe.name }</title>
 <%@ include file="../bootstrap.jsp"%>
 </head>
 <body>
@@ -78,7 +78,7 @@
 	<br>
 	<br>
 	
-	<form action="updateView.do" method="GET">
+	<form action="update.do" method="GET">
 	<!-- <input type="radio" name="updateView" value="yes"><label>Yes</label> -->
 		<input type="text" hidden="true" name="id" value="${recipe.id}">
 		<input type="submit" value="Edit Recipe">

@@ -4,86 +4,96 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Update Recipe</title>
 <%@ include file="../bootstrap.jsp"%>
 </head>
 <body>
-<h1>Found Recipe</h1>
+<h1>Update ${recipe.name}</h1>
 
-	<div>
-	<strong><h3>${recipe.name}</h3></strong>
-			<br>
-			<img src = "${recipe.imageUrl}"/>
-			<br>
-	<em><h3>Ingredients: </em></h3>
-	  
-		<c:forEach var="RecipeIngredient" items="${recipe.getRecipeIngredients()}">
-		<ul>
-		<li>${RecipeIngredient.getIngredient().getName()}  ${RecipeIngredient.getAmount()} </li>
-		
-		
-		</ul>
-		
-		</c:forEach>
-			<br>
-			<br>
-	<em> <h3>Description: </h3></em>
-		 <h3></h3>${recipe.description}</h4>
-			 <br>
-			 <br>
-	<em><h3>Cooking Instructions:</h3></em>
-	 <h4>${recipe.cookingInstructions}</h4>
-	 <br>
-	
-	<h3>Number of Servings: ${recipe.numberOfServing}</h3>
-	<br>
-	<h3>Cook Time: ${recipe.cookTime}</h3>
-	<br>
-	<h3>Country: ${recipe.country} </h3>
-	<br>
-	
-	<h3>dietary Preference: ${recipe.dietaryPreferences} </h3>
-	
-	<br>
-	<h3>notes: ${recipe.notes}</h3>
-	<br>
-	<h3>Prep Time: ${recipe.prepTime}</h3>
-	<br>
-	<h3>Ratings: ${recipe.ratings}</h3>
-<br>
-<h3>Shared By: ${recipe.user.getUsername()} </h3>
-<br>
-<h3>Yield: ${recipe.yield}</h3>
+	<form action="updateRecipe.do" method="GET">
+		<input type="hidden" value="${recipe.id}" name ="id"/>
+  <div class="form-row">
+  
+    <div class="form-group col-md-6">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" name="name" value="${recipe.name}">
+    </div>
+    
+    
+    
+    <div class="form-group col-md-6">
+      <label for="description">Description</label>
+      <input type="text" class="form-control" name="description" >
+    </div>
+    
+    
+    
+    <div class="form-group col-md-6">
+      <label for="imageUrl">Image Url </label>
+      <input type="text" class="form-control" name="imageUrl" >
+    </div>
+    
+    
+    <div class="form-group col-md-6">
+      <label for="cookingInstructions">Cooking Instructions</label>
+      <input type="text" class="form-control" name="cookingInstructions" >
+    </div>
+    
+    
+    <div class="form-group col-md-6">
+      <label for="numberOfServings">Number Of Servings</label>
+      <input type="text" class="form-control" name="numberOfServings">
+    </div>
+    
+    
+    <div class="form-group col-md-6">
+      <label for="calories">Calories</label>
+      <input type="text" class="form-control" name="calories" >
+    </div>
+    
+    
+    <div class="form-group col-md-6">
+      <label for="prepTime">Prep Time</label>
+      <input type="text" class="form-control" name="prepTime">
+    </div>
+    
+    
+    <div class="form-group col-md-6">
+      <label for="yield">Yield</label>
+      <input type="text" class="form-control" name="yield">
+    </div>
+    
+    
+    <div class="form-group col-md-6">
+      <label for="notes">Notes</label>
+      <input type="text" class="form-control" name="notes">
+    </div>
+    
+    
+    <div class="form-group col-md-6">
+      <label for="cookTime">Cook Time</label>
+      <input type="text" class="form-control" name="cookTime">
+    </div>
+    
+    
+   <!--  <div class="form-group col-md-6">
+      <label for="countryId">Country Id</label>
+      <input type="hidden" class="form-control" name="countryId" placeholder="Cook Time" value="1">
+    </div> -->
+  </div>
+  <div class="form-group">
+  </div>
+  <br>
+  <button type="submit" class="btn btn-primary">Update Me!</button>
+  <br>
+</form>
 
-<br>
-<h3>Calories: ${recipe.calories}</h3>
-<br>
-<h3>Categories: ${recipe.categories}</h3>
-<br>
-<h3>Comments:  ${recipe.comments}</h3>
-
-
-
-
+</body>
+</html>
 
 
 </div>
 	
-	<br>
-	<form action="delete.do" method="GET">
-	<!-- <input type="radio" name="deleteRecipe" value="yes"><label>Yes</label> -->
-		<input type="text" hidden="true" name="rid" value="${recipe.id }">
-		<input type="submit" value="Delete Recipe">
-	</form>
-	<br>
-	<br>
-	
-	<form action="updateView.do" method="GET">
-	<!-- <input type="radio" name="updateView" value="yes"><label>Yes</label> -->
-		<input type="text" hidden="true" name="id" value="${recipe.id}">
-		<input type="submit" value="Edit Recipe">
-	</form>
-
 
 </body>
 </html>

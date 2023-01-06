@@ -16,11 +16,11 @@
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="name">Name</label>
-      <input type="text" class="form-control" name="name" placeholder="Name">
+      <input type="text" class="form-control" name="name" placeholder="ex. Cherry Pie">
     </div>
     <div class="form-group col-md-6">
       <label for="description">Description</label>
-      <input type="text" class="form-control" name="description" placeholder="Description">
+      <input type="text" class="form-control" name="description" placeholder="ex. A pie made from cherries">
     </div>
     <div class="form-group col-md-6">
       <label for="imageUrl">Image Url </label>
@@ -28,27 +28,27 @@
     </div>
     <div class="form-group col-md-6">
       <label for="cookingInstructions">Cooking Instructions</label>
-      <input type="text" class="form-control" name="cookingInstructions" placeholder="Cooking Instructions">
+      <input type="text" class="form-control" name="cookingInstructions" placeholder="ex. bake the pie at 350 degrees F">
     </div>
     <div class="form-group col-md-6">
       <label for="numberOfServings">Number Of Servings</label>
-      <input type="text" class="form-control" name="numberOfServings" placeholder="Number Of Servings">
+      <input type="text" class="form-control" name="numberOfServings" placeholder="ex. 8 Servings">
     </div>
     <div class="form-group col-md-6">
       <label for="calories">Calories</label>
-      <input type="text" class="form-control" name="calories" placeholder="Calories">
+      <input type="text" class="form-control" name="calories" placeholder="ex. 300 calories per slice">
     </div>
     <div class="form-group col-md-6">
       <label for="prepTime">Prep Time</label>
-      <input type="text" class="form-control" name="prepTime" placeholder="Prep Time">
+      <input type="text" class="form-control" name="prepTime" placeholder="ex. 30 minutes prep, 45 minute cook">
     </div>
     <div class="form-group col-md-6">
       <label for="yield">Yield</label>
-      <input type="text" class="form-control" name="yield" placeholder="Yield">
+      <input type="text" class="form-control" name="yield" placeholder="ex. 1 pie">
     </div>
     <div class="form-group col-md-6">
       <label for="notes">Notes</label>
-      <input type="text" class="form-control" name="notes" placeholder="Notes">
+      <input type="text" class="form-control" name="notes" placeholder="ex. Bake it with love">
     </div>
     <div class="form-group col-md-6">
       <label for="cookTime">Cook Time</label>

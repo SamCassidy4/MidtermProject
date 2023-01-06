@@ -4,6 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.mealmagic.data.RecipeDAO;
 import com.skilldistillery.mealmagic.entities.Recipe;
@@ -38,15 +41,22 @@ public class RecipeController {
 	}
 
 	@RequestMapping("update.do")
-	public String update(Model model, int id) {
+	public String update( Model model, int id) {
 		Recipe update = recipeDAO.findById(id);
+		
 		model.addAttribute("update", update);
-		return "recipe/updatePage";
+		
+		return "recipe/updateRecipe";
 	}
 
 	@RequestMapping("updateRecipe.do")
-	public String updatedRecipe(Model model, int id, Recipe recipe) {
-		model.addAttribute("recipe", recipeDAO.updateRecipe(recipe, id));
+	public String updatedRecipe(Model model, int id, Recipe recipe, RedirectAttributes redir) {
+		
+		Recipe update = new Recipe();
+		
+		model.addAttribute("recipe", recipeDAO.updateRecipe(update, id));
+		
+		redir.addAttribute("id", id);
 		return "recipe/showRecipe";
 	}
 
