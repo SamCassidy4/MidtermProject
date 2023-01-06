@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<%@ include file="bootstrap.jsp"%>
+<%@ include file="../bootstrap.jsp"%>
 </head>
 <body>
 <h1>Found Recipe</h1>

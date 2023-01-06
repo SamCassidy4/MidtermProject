@@ -30,13 +30,13 @@
 
                   <div class="form-outline mb-4">
                     
-                    <input type="text" id="username" class="form-control"
+                    <input type="text" name="username" class="form-control"
                       placeholder="Phone number or email address" />
                     <label class="form-label" for="username">Username</label>
                   </div>
 
                   <div class="form-outline mb-4">
-                    <input type="text" id="password" class="form-control" />
+                    <input type="text" name="password" class="form-control" />
                     <label class="form-label" for="password">Password</label>
                   </div>
 

@@ -11,7 +11,7 @@ public interface UserDAO {
 	
 	User createUser(User user);
 	
-	User deleteUser(User user);
+	boolean deleteUser(User user);
 	
 	User updateUser(User user);
 

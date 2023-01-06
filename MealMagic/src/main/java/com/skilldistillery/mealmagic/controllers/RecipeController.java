@@ -11,18 +11,55 @@ import com.skilldistillery.mealmagic.entities.Recipe;
 @Controller
 public class RecipeController {
 
-@Autowired
-private RecipeDAO recipeDAO;
+	@Autowired
+	private RecipeDAO recipeDAO;
 
-@RequestMapping ("getRecipe.do")
-public String showRecipe (Model model, int id) {
+	@RequestMapping("getRecipe.do")
+	public String showRecipe(Model model, int id) {
 
-	Recipe recipe = recipeDAO.findById(id);
-	model.addAttribute("recipe", recipe);
-	return "showRecipe";
-}
+		Recipe recipe = recipeDAO.findById(id);
+		model.addAttribute("recipe", recipe);
+		return "recipe/showRecipe";
+	}
 
+	@RequestMapping("create.do")
+	public String create(Model model, Recipe recipe) {
+		Recipe create = recipeDAO.createRecipe(recipe);
+		model.addAttribute("recipe", create);
+		return "recipe/showRecipe";
+	}
 
+	@RequestMapping("delete.do")
+	public String delete(Model model, int id) {
+		boolean delete = recipeDAO.deleteRecipe(id);
+		model.addAttribute("deleteRecipe", delete);
+		return "recipe/deletedRecipePage";
 
+	}
+
+	@RequestMapping("update.do")
+	public String update(Model model, int id) {
+		Recipe update = recipeDAO.findById(id);
+		model.addAttribute("update", update);
+		return "recipe/updatePage";
+	}
+
+	@RequestMapping("updateRecipe.do")
+	public String updatedRecipe(Model model, int id, Recipe recipe) {
+		model.addAttribute("recipe", recipeDAO.updateRecipe(recipe, id));
+		return "recipe/showRecipe";
+	}
+
+	@RequestMapping("findKeyword.do")
+	public String findByKeyword(Model model, String keyword) {
+		model.addAttribute("recipes", recipeDAO.findByKeyword(keyword));
+		return "recipe/ListResult";
+	}
+
+	@RequestMapping("findAllRecipes.do")
+	public String findAllRecipes(Model model) {
+		model.addAttribute("recipes", recipeDAO.findAll());
+		return "recipe/ListResult";
+	}
 
 }

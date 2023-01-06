@@ -10,8 +10,7 @@
 <body>
 <h1>Account</h1>
 
-
-<p></p>
+<p>${user}</p>
 
 </body>
 </html>

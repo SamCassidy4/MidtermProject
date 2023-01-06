@@ -15,41 +15,62 @@ import com.skilldistillery.mealmagic.entities.Recipe;
 public class RecipeDAOImpl implements RecipeDAO {
 	@PersistenceContext
 	private EntityManager em;
-	
+
 	@Override
 	public Recipe findById(int recipeId) {
-		
+
 		return em.find(Recipe.class, recipeId);
 	}
 
 	@Override
 	public Recipe createRecipe(Recipe recipe) {
-		// TODO Auto-generated method stub
-		return null;
+		em.persist(recipe);
+		return recipe;
 	}
 
 	@Override
 	public boolean deleteRecipe(int recipeId) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean recipeWasDeleted = false;
+		Recipe recipe = em.find(Recipe.class, recipeId);
+		if (recipe != null) {
+			em.remove(recipe);
+			recipeWasDeleted = !em.contains(recipe);
+		}
+
+		return recipeWasDeleted;
 	}
 
 	@Override
 	public Recipe updateRecipe(Recipe recipe, int recipeId) {
-		// TODO Auto-generated method stub
-		return null;
+		Recipe updatedRecipe = em.find(Recipe.class, recipe.getId());
+
+		updatedRecipe.setName(recipe.getName());
+		updatedRecipe.setDescription(recipe.getDescription());
+		updatedRecipe.setImageUrl(recipe.getImageUrl());
+		updatedRecipe.setCookingInstructions(recipe.getCookingInstructions());
+		updatedRecipe.setNumberOfServing(recipe.getNumberOfServing());
+		updatedRecipe.setCalories(recipe.getCalories());
+		updatedRecipe.setPrepTime(recipe.getPrepTime());
+		updatedRecipe.setYield(recipe.getYield());
+		updatedRecipe.setNotes(recipe.getNotes());
+		updatedRecipe.setCookTime(recipe.getCookTime());
+
+		return recipe;
 	}
 
 	@Override
 	public List<Recipe> findByKeyword(String keyword) {
-		// TODO Auto-generated method stub
-		return null;
+		String query = "SELECT r FROM Recipe r WHERE r.name LIKE :nameR";
+		List<Recipe> recipe = em.createQuery(query, Recipe.class).setParameter("nameR", "%" + keyword + "%")
+				.getResultList();
+		return recipe;
 	}
 
 	@Override
 	public List<Recipe> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		String query = "SELECT r FROM Recipe r";
+		List<Recipe> recipes = em.createQuery(query, Recipe.class).getResultList();
+		return recipes;
 	}
 
 }
