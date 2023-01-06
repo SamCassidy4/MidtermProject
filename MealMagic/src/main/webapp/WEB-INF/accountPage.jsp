@@ -10,7 +10,8 @@
 <body>
 <h1>Account</h1>
 
-<p>${user}</p>
+<p>${loggedInUser.username}</p>
+
 
 </body>
 </html>
