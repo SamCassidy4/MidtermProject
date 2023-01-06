@@ -41,7 +41,7 @@ public class RecipeDAOImpl implements RecipeDAO {
 	}
 
 	@Override
-	public Recipe updateRecipe(Recipe recipe, int recipeId) {
+	public Recipe updateRecipe(int recipeId, Recipe recipe) {
 		Recipe updatedRecipe = em.find(Recipe.class, recipe.getId());
 
 		updatedRecipe.setName(recipe.getName());

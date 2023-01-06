@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.mealmagic.data.RecipeDAO;
 import com.skilldistillery.mealmagic.entities.Recipe;
@@ -37,16 +38,35 @@ public class RecipeController {
 
 	}
 
-	@RequestMapping("update.do")
-	public String update(Model model, int id) {
-		Recipe update = recipeDAO.findById(id);
-		model.addAttribute("update", update);
-		return "recipe/updatePage";
+	@RequestMapping("updateView.do")
+	public String update( Model model, int id) {
+		Recipe recipe = recipeDAO.findById(id);
+		
+		model.addAttribute("recipe", recipe);
+		
+		return "recipe/updateRecipe";
 	}
 
 	@RequestMapping("updateRecipe.do")
-	public String updatedRecipe(Model model, int id, Recipe recipe) {
-		model.addAttribute("recipe", recipeDAO.updateRecipe(recipe, id));
+	public String updatedRecipe(int id, String name, String description, String imageUrl, String cookingInstructions, String numberOfServing, Integer calories, String prepTime, 
+			String yield, String notes, String cookTime, RedirectAttributes redir) {
+		
+		Recipe update = new Recipe();
+		
+		update.setName(name);
+		update.setDescription(description);
+		update.setImageUrl(imageUrl);
+		update.setCookingInstructions(cookingInstructions);
+		update.setNumberOfServing(numberOfServing);
+		update.setCalories(calories);
+		update.setPrepTime(prepTime);
+		update.setYield(yield);
+		update.setNotes(notes);
+		update.setCookTime(cookTime);
+		
+		recipeDAO.updateRecipe(id, update);
+		
+		redir.addAttribute("id", id);
 		return "recipe/showRecipe";
 	}
 

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Sign in to Your Account</title>
 <%@ include file="bootstrap.jsp"%>
 </head>
 <body>
