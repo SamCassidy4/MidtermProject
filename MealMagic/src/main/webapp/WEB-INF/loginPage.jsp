@@ -25,7 +25,7 @@
                   <h4 class="mt-1 mb-5 pb-1">We are Magic Meal</h4>
                 </div>
 
-                <form action="account.do" method="GET">
+                <form action="login.do" method="post">
                   <p>Please login to your account</p>
 
                   <div class="form-outline mb-4">
