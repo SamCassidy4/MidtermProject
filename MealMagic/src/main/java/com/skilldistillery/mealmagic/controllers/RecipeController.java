@@ -1,5 +1,7 @@
 package com.skilldistillery.mealmagic.controllers;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,6 +10,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.mealmagic.data.RecipeDAO;
 import com.skilldistillery.mealmagic.entities.Recipe;
+import com.skilldistillery.mealmagic.entities.User;
 
 @Controller
 public class RecipeController {
@@ -24,7 +27,8 @@ public class RecipeController {
 	}
 
 	@RequestMapping("create.do")
-	public String create(Model model, Recipe recipe) {
+	public String create(Model model, Recipe recipe, HttpSession session) {
+		recipe.setUser((User) session.getAttribute("loggedInUser"));
 		Recipe create = recipeDAO.createRecipe(recipe);
 		model.addAttribute("recipe", create);
 		return "recipe/showRecipe";
