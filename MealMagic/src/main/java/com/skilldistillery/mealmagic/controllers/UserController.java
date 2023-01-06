@@ -80,26 +80,25 @@ public class UserController {
 	@RequestMapping(path = "viewfavorites.do")
 	public String favorites(Model model, HttpSession session) { // going to need to take in a User
 
-		
-
 		if (session.getAttribute("loggedInUser") != null) {
-			
+
 			User user1 = (User) session.getAttribute("loggedInUser");
 
 			User user = userDao.findById(user1.getId());
-			
+
+			session.setAttribute("loggedInUser", user);
+
 			List<Recipe> favorites = user.getFavoriteRecipes();
 
 			favorites.size();
 			model.addAttribute("favorites", favorites);
 
 			return "favoriteView";
-		} 
-		else {
-
-			return "loginPage";
 
 		}
+
+		return "loginPage";
+
 	}
 
 	@RequestMapping(path = "about.do")
