@@ -29,44 +29,40 @@ public class UserController {
 
 	@RequestMapping("account.do")
 	public String account(User user, HttpSession session) {
-		
-		if(session.getAttribute("loggedInUser") != null) {
-			
+
+		if (session.getAttribute("loggedInUser") != null) {
+
 			return "accountPage";
-		
-		}
-		else {
+
+		} else {
 			return "loginPage";
 		}
 	}
-
-	
-	
 
 	@RequestMapping(path = "login.do", method = RequestMethod.GET)
 	public String login() {
-		
-			return "loginPage";
-		}
-		
+
+		return "loginPage";
+	}
+
 	@RequestMapping(path = "login.do", method = RequestMethod.POST)
 	public String login(String username, String password, HttpSession session) {
-		
+
 		User user = userDao.findByUsernameAndPassword(username, password);
-		
+
 		if (user != null) {
-			
+
 			session.setAttribute("loggedInUser", user);
 			session.setAttribute("timeLoggedIn", LocalDateTime.now());
-		
+
 			return "accountPage";
 		}
 
 		else {
-		
+
 			return "loginPage";
-		
-	}
+
+		}
 	}
 
 	@RequestMapping(path = "findrecipes.do")
@@ -83,27 +79,27 @@ public class UserController {
 
 	@RequestMapping(path = "viewfavorites.do")
 	public String favorites(Model model, HttpSession session) { // going to need to take in a User
-		
-		User user1 = (User)session.getAttribute("loggedInUser");
-		
+
+		User user1 = (User) session.getAttribute("loggedInUser");
+
 		User user = userDao.findById(user1.getId());
-				
-		
+
 		if (user != null) {
-		
-		List<Recipe> favorites = user.getFavoriteRecipes();
-		
-		favorites.size();
-		model.addAttribute("favorites", favorites);
-		
-		return "favoriteView";
+			session.setAttribute("loggedInUser", user);
+
+			List<Recipe> favorites = user.getFavoriteRecipes();
+
+			favorites.size();
+			model.addAttribute("favorites", favorites);
+
+			return "favoriteView";
+		} else {
+
+			return "loginPage";
+
+		}
 	}
-		else {
-		
-		return "loginPage";	
-	
-	}
-}
+
 	@RequestMapping(path = "about.do")
 	public String aboutPage(Model model) {
 		return "aboutPage";
@@ -112,10 +108,10 @@ public class UserController {
 
 	@RequestMapping(path = "logout.do")
 	public String logout(HttpSession session) {
-		
+
 		session.removeAttribute("loggedInUser");
 		session.removeAttribute("timeLoggedIn");
-		
+
 		return "home";
 	}
 
