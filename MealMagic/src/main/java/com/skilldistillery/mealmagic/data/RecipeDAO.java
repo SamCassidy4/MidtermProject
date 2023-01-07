@@ -2,6 +2,7 @@ package com.skilldistillery.mealmagic.data;
 
 import java.util.List;
 
+import com.skilldistillery.mealmagic.entities.Ingredient;
 import com.skilldistillery.mealmagic.entities.Recipe;
 
 public interface RecipeDAO {
@@ -17,6 +18,9 @@ public Recipe updateRecipe(int recipeId, Recipe recipe);
 public List<Recipe> findByKeyword(String keyword);
 
 public List<Recipe> findAll();
+
+public boolean addIngredientToRecipe (int recipeId, Ingredient ingredient); 
+
 
 
 }
