@@ -48,9 +48,10 @@ class RecipeTest {
 		assertEquals("Pumpkin Pie", recipe.getName());
 		assertNotNull(recipe.getDescription());
 		assertEquals(250, recipe.getCalories());
-		assertEquals("8",recipe.getNumberOfServing());
-		
+		assertEquals("8", recipe.getNumberOfServing());
+
 	}
+
 	@Test
 	void test_Recipe_ManyToMany_mapping() {
 		assertNotNull(recipe.getCategories());
@@ -70,9 +71,18 @@ class RecipeTest {
 		assertEquals(1, recipe.getRatings().get(0).getRecipe().getId());
 		assertEquals(1, recipe.getUser().getId());
 	}
+
 	@Test
 	void test_recipe_ingredient() {
 		assertNotNull(recipe.getRecipeIngredients());
 		assertEquals("1 1/2 cups", recipe.getRecipeIngredients().get(0).getAmount());
 	}
+
+	@Test
+	void test_recipe_Country_mapping() {
+	assertEquals("United States", recipe.getCountry().getName());
+	assertEquals("North America",recipe.getCountry().getContinent());
+	assertEquals("mid-west", recipe.getCountry().getRegion());
+	assertEquals(1, recipe.getCountry().getId());
+}
 }
