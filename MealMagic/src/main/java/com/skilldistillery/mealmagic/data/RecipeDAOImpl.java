@@ -8,6 +8,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.mealmagic.entities.Ingredient;
 import com.skilldistillery.mealmagic.entities.Recipe;
 
 @Service
@@ -68,9 +69,32 @@ public class RecipeDAOImpl implements RecipeDAO {
 
 	@Override
 	public List<Recipe> findAll() {
+
 		String query = "SELECT r FROM Recipe r";
 		List<Recipe> recipes = em.createQuery(query, Recipe.class).getResultList();
 		return recipes;
+	}
+
+	@Override
+	public boolean addIngredientToRecipe(int recipeId, Ingredient ingredient) {
+		Recipe managedRecipe = em.find(Recipe.class, recipeId);
+
+		List<Ingredient> ingredients = managedRecipe.getIngredients();
+
+		if (!ingredients.contains(ingredient)) {
+
+			ingredients.add(ingredient);
+			managedRecipe.setIngredients(ingredients);
+			//em.persist ingredient
+			//ingredient.addRecipe(manageRecipe)
+			
+		em.persist(managedRecipe);
+		
+		}
+	
+			
+
+		return false;
 	}
 
 }
