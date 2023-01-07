@@ -50,5 +50,6 @@ class CountryTest {
 	@Test
 	void test_Country_OneToMany_mapping() {
 		assertNotNull(country.getRecipes());
+		assertEquals("Pumpkin Pie" ,country.getRecipes().get(0).getName());
 	}
 }
