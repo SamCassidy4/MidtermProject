@@ -35,8 +35,8 @@ public class RecipeController {
 	}
 
 	@RequestMapping("delete.do")
-	public String delete(Model model, int id) {
-		boolean delete = recipeDAO.deleteRecipe(id);
+	public String delete(Model model, int rid) {
+		boolean delete = recipeDAO.deleteRecipe(rid);
 		model.addAttribute("deleteRecipe", delete);
 		return "recipe/deletedRecipePage";
 

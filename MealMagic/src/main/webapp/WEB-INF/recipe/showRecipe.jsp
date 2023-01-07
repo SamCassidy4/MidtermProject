@@ -39,7 +39,7 @@
 	<br>
 	<h3>Cook Time: ${recipe.cookTime}</h3>
 	<br>
-	<h3>Country: ${recipe.country} </h3>
+	<h3>Country: ${recipe.country.name}, ${recipe.country.continent }, ${recipe.country.region } </h3>
 	<br>
 	
 	<h3>Dietary Preference: ${recipe.dietaryPreferences} </h3>
@@ -69,20 +69,21 @@
 
 </div>
 	
-	<br>
-	<form action="delete.do" method="GET">
-	<!-- <input type="radio" name="deleteRecipe" value="yes"><label>Yes</label> -->
+	<c:choose> <c:when test="${empty sessionScope.loggedInUser}">
+        <a class="nav-link" href="login.do"> Login </a>  
+        </c:when>
+	<c:otherwise> <form action="delete.do" method="GET">
 		<input type="text" hidden="true" name="rid" value="${recipe.id }">
 		<input type="submit" value="Delete Recipe">
 	</form>
+	
 	<br>
 	<br>
 	
 	<form action="updateView.do" method="GET">
-	<!-- <input type="radio" name="updateView" value="yes"><label>Yes</label> -->
 		<input type="text" hidden="true" name="id"  value="${recipe.id}">
 		<input type="submit" value="Edit Recipe">
-	</form>
+	</form></c:otherwise></c:choose>
 
 
 </body>
