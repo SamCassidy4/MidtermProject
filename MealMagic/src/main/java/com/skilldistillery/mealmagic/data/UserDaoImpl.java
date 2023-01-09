@@ -44,9 +44,9 @@ public class UserDaoImpl implements UserDAO {
 	}
 
 	@Override
-	public boolean deleteUser(User user) {
+	public boolean deleteUser(int id) {
 		boolean userWasDeleted = false;
-		User deletedUser = em.find(User.class, user);
+		User deletedUser = em.find(User.class, id);
 		if (deletedUser != null) {
 			em.remove(deletedUser);
 			userWasDeleted = !em.contains(deletedUser);
@@ -72,5 +72,7 @@ public class UserDaoImpl implements UserDAO {
 
 		return updatedUser;
 	}
+	
+	
 
 }

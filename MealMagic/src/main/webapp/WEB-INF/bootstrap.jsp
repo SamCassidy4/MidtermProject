@@ -26,12 +26,13 @@
         <a class="nav-link" href="uploadrecipes.do">Create New Recipe</a>
         <a class="nav-link" href="viewfavorites.do">Favorites</a>
        <c:choose>
-        <c:when test="${empty sessionScope.loggedInUser}">
+        	 <c:when test="${empty sessionScope.loggedInUser}">
         <a class="nav-link" href="login.do">Login</a>
-        </c:when>
-        <c:otherwise>
+        <a class="nav-link" href="createNewUserPage.do">Create Account</a>
+        	 </c:when>
+        	 <c:otherwise>
         <a class="nav-link" href="logout.do">Log Out</a>
-        </c:otherwise>
+        	 </c:otherwise>
         </c:choose>
         <a class="nav-link" href="about.do">About</a>
         

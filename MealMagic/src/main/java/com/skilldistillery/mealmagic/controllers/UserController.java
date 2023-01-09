@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.skilldistillery.mealmagic.data.RecipeDAO;
 import com.skilldistillery.mealmagic.data.UserDAO;
 import com.skilldistillery.mealmagic.entities.Recipe;
 import com.skilldistillery.mealmagic.entities.User;
@@ -20,6 +21,8 @@ public class UserController {
 
 	@Autowired
 	private UserDAO userDao;
+	@Autowired
+	private RecipeDAO recipeDao;
 
 	@RequestMapping(path = { "/", "home.do" })
 	public String home(Model model) {
@@ -47,22 +50,48 @@ public class UserController {
 
 	@RequestMapping(path = "login.do", method = RequestMethod.POST)
 	public String login(String username, String password, HttpSession session) {
-
 		User user = userDao.findByUsernameAndPassword(username, password);
 
 		if (user != null) {
-
 			session.setAttribute("loggedInUser", user);
 			session.setAttribute("timeLoggedIn", LocalDateTime.now());
 
 			return "accountPage";
-		}
-
-		else {
-
+		} else {
 			return "loginPage";
 
 		}
+	}
+
+	@RequestMapping(path = "createNewUserPage.do", method = RequestMethod.GET)
+	public String createNewUserPage(User user, HttpSession session) {
+		return "user/newUserPage";
+	}
+
+	@RequestMapping(path = "createNewUser.do", method = RequestMethod.GET)
+	public String createNewUser(User user, HttpSession session) {
+		User newUser = userDao.createUser(user);
+
+		session.setAttribute("user", newUser);
+
+		return "accountPage";
+	}
+
+	@RequestMapping(path = "deleteUser.do", method = RequestMethod.GET)
+	public String deleteUser(int id, HttpSession session) {
+		List<Recipe>recipes = userDao.findById(id).getRecipes();
+		
+		for (Recipe recipe : recipes) {
+			recipeDao.deleteRecipe(recipe.getId());
+		}
+		
+		boolean deletedUser = userDao.deleteUser(id);
+
+		if (session.getAttribute("loggedInUser") != null) {
+			session.setAttribute("user", deletedUser);
+		}
+
+		return "user/deletedUserPage";
 	}
 
 	@RequestMapping(path = "findrecipes.do")

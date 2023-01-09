@@ -5,14 +5,15 @@ import com.skilldistillery.mealmagic.entities.User;
 
 public interface UserDAO {
 	User findById(int userId);
-	// FIXME: Implement real methods. We're Just Testing for now
 	
 	User findByUsernameAndPassword(String username, String password);
 	
 	User createUser(User user);
 	
-	boolean deleteUser(User user);
+	boolean deleteUser(int id);
 	
 	User updateUser(User user);
+	
+	
 
 }
