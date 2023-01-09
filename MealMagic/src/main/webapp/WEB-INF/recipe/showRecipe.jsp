@@ -83,6 +83,13 @@
 	<form action="updateView.do" method="GET">
 		<input type="text" hidden="true" name="id"  value="${recipe.id}">
 		<input type="submit" value="Edit Recipe">
+	</form>
+	
+		<br>
+		<br>
+	<form action="showIngredient.do" method="GET">
+		<input type="text" hidden="true" name="id"  value="${recipe.id}">
+		<input type="submit" value="Add Ingredient">
 	</form></c:otherwise></c:choose>
 
 

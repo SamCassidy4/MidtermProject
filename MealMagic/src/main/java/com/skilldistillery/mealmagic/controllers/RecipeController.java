@@ -30,10 +30,14 @@ public class RecipeController {
 	public String create(Model model, Recipe recipe, HttpSession session) {
 		recipe.setUser((User) session.getAttribute("loggedInUser"));
 		Recipe create = recipeDAO.createRecipe(recipe);
+		
+//		boolean 
+//		if()
+//		Recipe addIngredient = recipeDAO.addIngredientToRecipe(id)
 		model.addAttribute("recipe", create);
 		return "recipe/showRecipe";
 	}
-
+	
 	@RequestMapping("delete.do")
 	public String delete(Model model, int rid) {
 		boolean delete = recipeDAO.deleteRecipe(rid);

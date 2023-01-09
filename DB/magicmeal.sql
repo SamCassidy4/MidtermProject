@@ -120,7 +120,7 @@ DROP TABLE IF EXISTS `recipe_ingredient` ;
 CREATE TABLE IF NOT EXISTS `recipe_ingredient` (
   `recipe_id` INT NOT NULL,
   `ingredient_id` INT NOT NULL,
-  `amount` VARCHAR(45) NOT NULL,
+  `amount` VARCHAR(45) NULL,
   `food_prep` VARCHAR(100) NULL,
   PRIMARY KEY (`recipe_id`, `ingredient_id`),
   INDEX `fk_recipe_has_ingredient_ingredient1_idx` (`ingredient_id` ASC),
@@ -322,7 +322,7 @@ START TRANSACTION;
 USE `mealmagicdb`;
 INSERT INTO `country` (`id`, `name`, `continent`, `region`) VALUES (1, 'United States', 'North America', 'mid-west');
 INSERT INTO `country` (`id`, `name`, `continent`, `region`) VALUES (2, 'Mexico', 'North America', 'all regions');
-INSERT INTO `country` (`id`, `name`, `continent`, `region`) VALUES (3, 'Colombia', 'South America', 'all regions');
+INSERT INTO `country` (`id`, `name`, `continent`, `region`) VALUES (3, 'Columbia', 'South America', 'all regions');
 INSERT INTO `country` (`id`, `name`, `continent`, `region`) VALUES (4, 'Thailand', 'Asia', 'central');
 INSERT INTO `country` (`id`, `name`, `continent`, `region`) VALUES (5, 'Italy', 'Europe', 'all regions');
 INSERT INTO `country` (`id`, `name`, `continent`, `region`) VALUES (6, 'Poland', 'Europe', 'southeastern eruope');

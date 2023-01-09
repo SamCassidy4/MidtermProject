@@ -19,7 +19,9 @@ public List<Recipe> findByKeyword(String keyword);
 
 public List<Recipe> findAll();
 
-public boolean addIngredientToRecipe (int recipeId, Ingredient ingredient); 
+public Ingredient addIngredientToRecipe (int recipeId, Ingredient ingredient);
+
+boolean addRecipeToIngredient(int ingredientId, Recipe recipe); 
 
 
 

@@ -1,5 +1,6 @@
 package com.skilldistillery.mealmagic.data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -76,24 +77,41 @@ public class RecipeDAOImpl implements RecipeDAO {
 	}
 
 	@Override
-	public boolean addIngredientToRecipe(int recipeId, Ingredient ingredient) {
+	public Ingredient addIngredientToRecipe(int recipeId, Ingredient ingredient) {
 		Recipe managedRecipe = em.find(Recipe.class, recipeId);
 
 		List<Ingredient> ingredients = managedRecipe.getIngredients();
 
 		if (!ingredients.contains(ingredient)) {
-
+           ingredient.setRecipes(new ArrayList<Recipe>());
+           ingredient.getRecipes().add(managedRecipe);
+			em.persist(ingredient);
 			ingredients.add(ingredient);
 			managedRecipe.setIngredients(ingredients);
-			//em.persist ingredient
-			//ingredient.addRecipe(manageRecipe)
-			
-		em.persist(managedRecipe);
+//			 em.persist ingredient
+//			 ingredient.addRecipe(manageRecipe)
+			em.persist(managedRecipe);
 		
-		}
-	
-			
 
+		}
+
+		return ingredient;
+	}
+
+	@Override
+	public boolean addRecipeToIngredient(int ingredientId, Recipe recipe) {
+		Ingredient managedIngredient = em.find(Ingredient.class, ingredientId);
+
+		List<Recipe> recipes = managedIngredient.getRecipes();
+
+		if (!recipes.contains(recipe)) {
+			recipes.add(recipe);
+
+			managedIngredient.setRecipes(recipes);
+
+			em.persist(managedIngredient);
+
+		}
 		return false;
 	}
 
