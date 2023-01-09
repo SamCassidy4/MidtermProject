@@ -30,14 +30,14 @@ public class RecipeController {
 	public String create(Model model, Recipe recipe, HttpSession session) {
 		recipe.setUser((User) session.getAttribute("loggedInUser"));
 		Recipe create = recipeDAO.createRecipe(recipe);
-		
+
 //		boolean 
 //		if()
 //		Recipe addIngredient = recipeDAO.addIngredientToRecipe(id)
 		model.addAttribute("recipe", create);
 		return "recipe/showRecipe";
 	}
-	
+
 	@RequestMapping("delete.do")
 	public String delete(Model model, int rid) {
 		boolean delete = recipeDAO.deleteRecipe(rid);
@@ -47,34 +47,18 @@ public class RecipeController {
 	}
 
 	@RequestMapping("updateView.do")
-	public String update( Model model, int id) {
+	public String update(Model model, int id) {
 		Recipe recipe = recipeDAO.findById(id);
-		
 		model.addAttribute("recipe", recipe);
-		
+
 		return "recipe/updateRecipe";
 	}
 
 	@RequestMapping("updateRecipe.do")
-	public String updatedRecipe(int id, String name, String description, String imageUrl, String cookingInstructions, String numberOfServing, Integer calories, String prepTime, 
-			String yield, String notes, String cookTime, RedirectAttributes redir) {
-		
-		Recipe update = new Recipe();
-		
-		update.setName(name);
-		update.setDescription(description);
-		update.setImageUrl(imageUrl);
-		update.setCookingInstructions(cookingInstructions);
-		update.setNumberOfServing(numberOfServing);
-		update.setCalories(calories);
-		update.setPrepTime(prepTime);
-		update.setYield(yield);
-		update.setNotes(notes);
-		update.setCookTime(cookTime);
-		
-		recipeDAO.updateRecipe(id, update);
-		
-		redir.addAttribute("id", id);
+	public String updatedRecipe(Model model, Recipe recipe, RedirectAttributes redir) {
+		recipeDAO.updateRecipe(recipe.getId(), recipe);
+		redir.addFlashAttribute(recipe);
+
 		return "recipe/showRecipe";
 	}
 

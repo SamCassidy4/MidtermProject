@@ -46,16 +46,21 @@ public class RecipeDAOImpl implements RecipeDAO {
 	public Recipe updateRecipe(int recipeId, Recipe recipe) {
 		Recipe updatedRecipe = em.find(Recipe.class, recipe.getId());
 
-		updatedRecipe.setName(recipe.getName());
-		updatedRecipe.setDescription(recipe.getDescription());
-		updatedRecipe.setImageUrl(recipe.getImageUrl());
-		updatedRecipe.setCookingInstructions(recipe.getCookingInstructions());
-		updatedRecipe.setNumberOfServing(recipe.getNumberOfServing());
-		updatedRecipe.setCalories(recipe.getCalories());
-		updatedRecipe.setPrepTime(recipe.getPrepTime());
-		updatedRecipe.setYield(recipe.getYield());
-		updatedRecipe.setNotes(recipe.getNotes());
-		updatedRecipe.setCookTime(recipe.getCookTime());
+		if (updatedRecipe != null) {
+			
+			updatedRecipe.setName(recipe.getName());
+			updatedRecipe.setDescription(recipe.getDescription());
+			updatedRecipe.setImageUrl(recipe.getImageUrl());
+			updatedRecipe.setCookingInstructions(recipe.getCookingInstructions());
+			updatedRecipe.setNumberOfServing(recipe.getNumberOfServing());
+			updatedRecipe.setCalories(recipe.getCalories());
+			updatedRecipe.setPrepTime(recipe.getPrepTime());
+			updatedRecipe.setYield(recipe.getYield());
+			updatedRecipe.setNotes(recipe.getNotes());
+			updatedRecipe.setCookTime(recipe.getCookTime());
+			
+			em.persist(updatedRecipe);
+		}
 
 		return recipe;
 	}

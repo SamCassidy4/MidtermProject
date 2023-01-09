@@ -10,14 +10,29 @@
 <body>
 <h1>List Of Ingredients</h1>
 
-<form action="experiment.do" method="GET" >
 	<c:forEach var="RecipeIngredient" items="${recipe.getRecipeIngredients()}">
 		 <div class="form-group col-md-6">
       	 <label for="ingredient.name">${ingredient.name}</label>
-      	 <input type="text" class="form-control" name="name" placeholder="" value="${RecipeIngredient.getIngredient().getName()}">
+      	 <ul>
+      	 <li>${RecipeIngredient.getIngredient().getName()}</li>
+      	 </ul>
      	</div>
 		
 	</c:forEach>
+	
+	<c:choose>
+	 	<c:when test="${empty ingredient.name }">
+	
+	
+	 	</c:when>
+	
+	 	<c:otherwise>
+	
+	 	</c:otherwise>
+	
+	</c:choose>
+	
+<form action="experiment.do" method="GET" >
 	
       	 <input type="hidden" class="form-control" name="ind" placeholder="" value="${recipe.id} ">
 	<label for="ingredient.name">${ingredient.name}</label>
