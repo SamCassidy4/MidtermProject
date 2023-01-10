@@ -25,6 +25,7 @@ private RecipeDAO recipeDAO;
 
 @RequestMapping("addComment.do")
 public String addComment(Model model, Comment comment, HttpSession session) {
+	
 	comment.setPostedDate(LocalDateTime.now());
 	
 	commentDAO.addComment(comment);
