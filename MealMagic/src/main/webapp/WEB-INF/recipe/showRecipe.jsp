@@ -44,6 +44,7 @@
 
 		<h3>Dietary Preference: ${recipe.dietaryPreferences}</h3>
 
+
 		<br>
 		<h3>notes: ${recipe.notes}</h3>
 		<br>
@@ -123,6 +124,7 @@
 			</form>
 		</c:otherwise>
 	</c:choose>
+
 
 
 </body>
