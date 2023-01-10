@@ -62,10 +62,21 @@
 <br>
 <h3>Comments:  ${recipe.comments}</h3>
 
+<c:forEach var="comment" items="${recipe.comments}">
 
+<p> ${comment.id}</p>
+<p>	${comment.remark}</p>
 
+</c:forEach>
 
+<div class="form-group">
+  <form action="addComment.do" method="GET">
+  <label for="remark">Comment:</label>
+  <textarea class="form-control" rows="5" name="remark"></textarea>
+<input type ="submit" value="Submit Comment">
+</div>
 
+</form>
 
 </div>
 	
