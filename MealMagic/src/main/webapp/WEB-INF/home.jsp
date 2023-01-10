@@ -58,22 +58,73 @@
   </div>
 </div>
  
+ <form action="getRecipeFromIngredient.do" method="GET">
  <h2>
- <div class="form-check form-check-inline">
-  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-  <label class="form-check-label" for="inlineCheckbox1">1</label>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="sugar" name="keyword" for="keyword" />
+  <label class="form-check-label">Sugar</label>
 </div>
-<div class="form-check form-check-inline">
-  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-  <label class="form-check-label" for="inlineCheckbox2">2</label>
+
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="all-purpose flour" name="keyword" for="keyword"/>
+  <label class="form-check-label">Flour</label>
 </div>
-<div class="form-check form-check-inline">
-  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" disabled>
-  <label class="form-check-label" for="inlineCheckbox3">3 (disabled)</label>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="salt" name="keyword" for="keyword" />
+  <label class="form-check-label">Salt</label>
 </div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="butter" name="keyword" for="keyword"/>
+  <label class="form-check-label">Butter</label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="coconut milk" name="keyword" for="keyword" />
+  <label class="form-check-label">Coconut Milk</label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="pistachio" name="keyword" for="keyword"/>
+  <label class="form-check-label">Pistachio</label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="honey" name="keyword" for="keyword"/>
+  <label class="form-check-label">Honey</label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="nutmeg" name="keyword" for="keyword"/>
+  <label class="form-check-label">Nutmeg</label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="steak" name="keyword" for="keyword"" />
+  <label class="form-check-label">Steak</label>
+</div>
+
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="egg" name="keyword" for="keyword"/>
+  <label class="form-check-label">Egg</label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="garlic" name="keyword" for="keyword"/>
+  <label class="form-check-label">Garlic</label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="milk" name="keyword" for="keyword"/>
+  <label class="form-check-label">Milk</label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="cooking oil" name="keyword" for="keyword"/>
+  <label class="form-check-label">Cooking Oil</label>
+</div>
+
+<button type="submit" class="btn btn-outline-primary">Submit</button>
+</form>
  </h2>
 
-
+<form action="getRecipeFromIngredient.do" method="GET">
+<div class="input-group">
+  <input type="search" class="form-control rounded" placeholder="Search for an ingredient" aria-label="Search" aria-describedby="search-addon" name="keyword" for="keyword" />
+  <button type="submit" class="btn btn-outline-primary">search</button>
+</div>
+</form>
 
 </body>
 </html>

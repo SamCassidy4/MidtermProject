@@ -47,4 +47,25 @@ public class IngredientController {
 		return "ingredient/showIngredient";
 	}
 
+//	@RequestMapping("searchIngredient.do")
+//	public String findByKeyword(Model model, String keyword) {
+//		model.addAttribute("ingredients", ingredientDAO.findByKeyword(keyword));
+//		return "ingredient/listResult";
+//	}
+
+	@RequestMapping("getIngredient.do")
+	public String showIngredient(Model model, int id) {
+
+		Ingredient ingredient = ingredientDAO.findById(id);
+		model.addAttribute("recipe", ingredient);
+		return "recipe/showRecipe";
+
+	}
+	
+	@RequestMapping("getRecipeFromIngredient.do")
+	public String showRecipe(Model model, String[] keyword) {
+		model.addAttribute("recipes",ingredientDAO.findRecipeByIngredientKeyword(keyword));
+		
+		return "ingredient/listResult";
+	}
 }
