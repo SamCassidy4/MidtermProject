@@ -38,13 +38,21 @@ public class CountryController {
 	}
 	
 	@RequestMapping("deleteCountry.do")
-	public String deleteCountry(Model model, int id) {
+	public String deleteCountry(Model model, int id, HttpSession session) {
 		boolean deleteCountry = countryDAO.deleteCountry(id);
 		model.addAttribute("deleteCountry", deleteCountry);
 		
 		return "country/deletedCountryPage";
 	}
 	
+	
+	@RequestMapping("showCountry.do")
+	public String showCountryPage(Model model, Integer id) {
+		Country country = countryDAO.findById(id);
+		model.addAttribute("country", country);
+		
+		return "country/showCountry";
+	}
 	
 	@RequestMapping("updateCountry.do")
 	public String updateCountry(Model model, Country country, RedirectAttributes redir) {

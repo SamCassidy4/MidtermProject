@@ -76,8 +76,6 @@
 		<input type="text" hidden="true" name="rid" value="${recipe.id }">
 		<input type="submit" value="Delete Recipe">
 	</form>
-	
-	<br>
 	<br>
 	
 	<form action="updateView.do" method="GET">
@@ -86,11 +84,13 @@
 	</form>
 	<br>
 		<br>
-		<br>
 	<form action="showIngredient.do" method="GET">
 		<input type="text" hidden="true" name="id"  value="${recipe.id}">
 		<input type="submit" value="Add Ingredient">
-	</form></c:otherwise></c:choose>
+	</form>
+	<br>
+		<br>
+	</c:otherwise></c:choose>
 
 
 </body>
