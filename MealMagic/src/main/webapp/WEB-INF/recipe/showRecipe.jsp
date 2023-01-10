@@ -84,7 +84,7 @@
 		<input type="text" hidden="true" name="id"  value="${recipe.id}">
 		<input type="submit" value="Edit Recipe">
 	</form>
-	
+	<br>
 		<br>
 		<br>
 	<form action="showIngredient.do" method="GET">
