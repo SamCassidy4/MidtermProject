@@ -37,9 +37,6 @@
       	 <input type="hidden" class="form-control" name="ind" placeholder="" value="${recipe.id} ">
 	<label for="ingredient.name">${ingredient.name}</label>
       	 <input type="text" class="form-control" name="name" placeholder="New Ingredient">
-      	<!--  <input type="text" class="form-control" name="name" placeholder="New Ingredient">
-      	 <input type="text" class="form-control" name="name" placeholder="New Ingredient">
-      	 <input type="text" class="form-control" name="name" placeholder="New Ingredient"> -->
 	<br>
 	 <button type="submit" class="btn btn-primary">Update Ingredients!</button>
 	
