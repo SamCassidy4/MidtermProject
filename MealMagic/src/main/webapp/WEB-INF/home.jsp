@@ -58,19 +58,54 @@
   </div>
 </div>
  
+ <form action="getRecipeFromIngredient.do" method="GET">
  <h2>
- <div class="form-check form-check-inline">
-  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-  <label class="form-check-label" for="inlineCheckbox1">1</label>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" name="flexCheckDefault" />
+  <label class="form-check-label" for="flexCheckDefault">Sugar</label>
 </div>
-<div class="form-check form-check-inline">
-  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-  <label class="form-check-label" for="inlineCheckbox2">2</label>
+
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" name="flexCheckChecked"/>
+  <label class="form-check-label" for="flexCheckDefault">Flour</label>
 </div>
-<div class="form-check form-check-inline">
-  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" disabled>
-  <label class="form-check-label" for="inlineCheckbox3">3 (disabled)</label>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" name="flexCheckDefault" />
+  <label class="form-check-label" for="flexCheckDefault">Salt</label>
 </div>
+
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" name="flexCheckChecked"/>
+  <label class="form-check-label" for="flexCheckDefault">Butter</label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" name="flexCheckDefault" />
+  <label class="form-check-label" for="flexCheckDefault">Coconut Milk</label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" name="flexCheckChecked"/>
+  <label class="form-check-label" for="flexCheckDefault">Pistachio</label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" name="flexCheckDefault" />
+  <label class="form-check-label" for="flexCheckDefault">Honey</label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" name="flexCheckChecked"/>
+  <label class="form-check-label" for="flexCheckDefualt">Nutmeg</label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" name="flexCheckDefault" />
+  <label class="form-check-label" for="flexCheckDefault">Steak</label>
+</div>
+
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" name="flexCheckChecked"/>
+  <label class="form-check-label" for="flexCheckDefault">Egg</label>
+</div>
+
+<button type="submit" class="btn btn-outline-primary">Garlic</button>
+</form>
  </h2>
 
 <form action="getRecipeFromIngredient.do" method="GET">
@@ -78,7 +113,7 @@
   <input type="search" class="form-control rounded" placeholder="Search for an ingredient" aria-label="Search" aria-describedby="search-addon" name="keyword" for="keyword" />
   <button type="submit" class="btn btn-outline-primary">search</button>
 </div>
-     </form>
+</form>
 
 </body>
 </html>

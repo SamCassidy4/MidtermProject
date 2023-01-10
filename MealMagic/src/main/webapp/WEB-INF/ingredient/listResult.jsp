@@ -29,7 +29,7 @@
 					<c:forEach var="recipe" items="${recipes }">
 
 						<tr>
-							<td><a href="getIngredient.do?id=${recipe.id}">${recipe.name}</a></td>
+							<td><a href="getRecipe.do?id=${recipe.id}">${recipe.name}</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
