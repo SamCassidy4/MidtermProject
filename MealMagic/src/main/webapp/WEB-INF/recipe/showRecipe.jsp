@@ -104,7 +104,7 @@
 		</c:when>
 		<c:otherwise>
 			<form action="delete.do" method="GET">
-				<input type="text" hidden="true" name="rid" value="${recipe.id }">
+				<input type="text" hidden="true" name="rid" value="${recipe.id}">
 				<input type="submit" value="Delete Recipe">
 			</form>
 
