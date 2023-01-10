@@ -45,11 +45,11 @@ public class IngredientDAOimpl implements IngredientDAO {
 	@Override
 	public Ingredient updateIngredient(int ingredientId, Ingredient ingredient) {
 		Ingredient updateIngredient = em.find(Ingredient.class, ingredient.getId());
-		
+
 		updateIngredient.setName(ingredient.getName());
 		updateIngredient.setDescription(ingredient.getDescription());
 		updateIngredient.setImageUrl(ingredient.getImageUrl());
-		
+
 		return ingredient;
 	}
 
@@ -67,30 +67,29 @@ public class IngredientDAOimpl implements IngredientDAO {
 		List<Ingredient> ingredients = em.createQuery(query, Ingredient.class).getResultList();
 		return ingredients;
 	}
-	
-	@Override
-	public List<Recipe> findRecipeByIngredientKeyword(String[] keyword){
-		String query = "SELECT DISTINCT r FROM Recipe r"; 
 
-		for(int i=0; i< keyword.length; i++) {
+	@Override
+	public List<Recipe> findRecipeByIngredientKeyword(String[] keyword) {
+		String query = "SELECT DISTINCT r FROM Recipe r";
+
+		for (int i = 0; i < keyword.length; i++) {
 			query += " JOIN RecipeIngredient ri" + i + " ON r.id = ri" + i + ".recipe.id";
 		}
 		query += " WHERE";
-		for(int i=0; i< keyword.length; i++) {
-			if(i > 0) {
-				query +=" AND";
+		for (int i = 0; i < keyword.length; i++) {
+			if (i > 0) {
+				query += " AND";
 			}
-			query += " EXISTS (SELECT i FROM Ingredient i WHERE i.name LIKE :name" + i + " AND i.id = ri" + i + ".ingredient.id)";
+			query += " EXISTS (SELECT i FROM Ingredient i WHERE i.name LIKE :name" + i + " AND i.id = ri" + i
+					+ ".ingredient.id)";
 		}
 		TypedQuery<Recipe> tq = em.createQuery(query, Recipe.class);
-		for(int i=0; i< keyword.length; i++) {
-			tq.setParameter("name" + i,"%" + keyword[i] + "%");
-			
+		for (int i = 0; i < keyword.length; i++) {
+			tq.setParameter("name" + i, "%" + keyword[i] + "%");
+
 		}
 		List<Recipe> recipes = tq.getResultList();
 		return recipes;
 
-	
-
-}
+	}
 }
