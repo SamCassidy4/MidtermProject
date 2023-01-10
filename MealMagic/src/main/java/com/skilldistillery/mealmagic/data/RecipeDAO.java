@@ -21,7 +21,8 @@ public List<Recipe> findAll();
 
 public Ingredient addIngredientToRecipe (int recipeId, Ingredient ingredient);
 
-boolean addRecipeToIngredient(int ingredientId, Recipe recipe); 
+boolean addRecipeToIngredient(int ingredientId, Recipe recipe);
+
 
 
 

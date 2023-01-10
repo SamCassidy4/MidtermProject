@@ -26,13 +26,19 @@
       <label for="country">Country</label>
       <select name="country.id" class="form-control">
         <option selected>Select a Country</option>
-        <option value="1">United States</option>
-        <option value="2">Mexico</option>
+      <c:forEach var="c" items="${countries}">
+      
+  <%--       <option value="${c.id}">United States</option>
+        <option value="$">Mexico</option>
         <option value="3">Colombia</option>
         <option value="4">Thailand</option>
         <option value="5">Italy</option>
         <option value="6">Poland</option>
-        <option value="7">Lebanon</option>
+        <option value="7">Lebanon</option> --%>
+        
+        <option value="${c.id} ">${c.name }</option>
+      
+      </c:forEach>
       </select>
     </div>
 </div>
@@ -72,15 +78,29 @@
       <label for="countryId">Country Id</label>
       <input type="hidden" class="form-control" name="countryId" placeholder="Cook Time" value="1">
     </div> -->
-  </div>
+  
   <div class="form-group">
   </div>
   <br>
   <button type="submit" class="btn btn-primary">Create Me!</button>
   <br>
   
+	
+  
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" 
 integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </form>
+
+  <form action="createCountryPage.do" method="GET">
+		<input type="text" hidden="true" name="id"  value="${recipe.id}">
+		<input type="submit" value="Create A New Country For Recipe">
+</form>
+	<br>
+	
+	<form action="showListCountry.do" method="GET">
+		<input type="text" hidden="true" name="id"  value="${recipe.id}">
+		<input type="submit" value="Show A List Of Countries For Recipes">
+	</form>
+	<br>
 </body>
 </html>

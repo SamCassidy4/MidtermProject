@@ -30,8 +30,6 @@ public class RecipeController {
 	public String create(Model model, Recipe recipe, HttpSession session) {
 		recipe.setUser((User) session.getAttribute("loggedInUser"));
 		Recipe create = recipeDAO.createRecipe(recipe);
-
-
 		model.addAttribute("recipe", create);
 		return "recipe/showRecipe";
 	}
