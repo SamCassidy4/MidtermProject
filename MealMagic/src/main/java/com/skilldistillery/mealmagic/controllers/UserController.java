@@ -11,8 +11,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.skilldistillery.mealmagic.data.CountryDAO;
 import com.skilldistillery.mealmagic.data.RecipeDAO;
 import com.skilldistillery.mealmagic.data.UserDAO;
+import com.skilldistillery.mealmagic.entities.Country;
 import com.skilldistillery.mealmagic.entities.Recipe;
 import com.skilldistillery.mealmagic.entities.User;
 
@@ -23,6 +25,8 @@ public class UserController {
 	private UserDAO userDao;
 	@Autowired
 	private RecipeDAO recipeDao;
+	@Autowired
+	private CountryDAO countryDao;
 
 	@RequestMapping(path = { "/", "home.do" })
 	public String home(Model model) {
@@ -102,6 +106,8 @@ public class UserController {
 
 	@RequestMapping(path = "uploadrecipes.do")
 	public String uploadRecipe(Model model) {
+	  	List<Country>countries = countryDao.findAll();
+		model.addAttribute("countries",countries);
 		return "recipe/createRecipe";
 
 	}
