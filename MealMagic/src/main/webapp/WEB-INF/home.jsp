@@ -73,7 +73,7 @@
 </div>
  </h2>
 
-<form action="searchIngredient.do" method="GET">
+<form action="getRecipeFromIngredient.do" method="GET">
 <div class="input-group">
   <input type="search" class="form-control rounded" placeholder="Search for an ingredient" aria-label="Search" aria-describedby="search-addon" name="keyword" for="keyword" />
   <button type="submit" class="btn btn-outline-primary">search</button>

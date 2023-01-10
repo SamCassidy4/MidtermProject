@@ -9,6 +9,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.mealmagic.entities.Ingredient;
+import com.skilldistillery.mealmagic.entities.Recipe;
 
 @Service
 @Transactional
@@ -65,5 +66,15 @@ public class IngredientDAOimpl implements IngredientDAO {
 		List<Ingredient> ingredients = em.createQuery(query, Ingredient.class).getResultList();
 		return ingredients;
 	}
+	
+	@Override
+	public List<Recipe> findRecipeByIngredientKeyword(String keyword){
+		String query = "SELECT r FROM Recipe r JOIN RecipeIngredient ri ON ri.recipe.id = r.id JOIN Ingredient i ON ri.ingredient.id "
+				+ "= i.id WHERE i.name LIKE :nameI";
+		List<Recipe> recipes = em.createQuery(query, Recipe.class).setParameter("nameI", "%" + keyword + "%")
+				.getResultList();
+		return recipes;
+	}
+	
 
 }

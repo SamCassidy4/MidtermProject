@@ -93,8 +93,6 @@ public class RecipeDAOImpl implements RecipeDAO {
 			em.persist(ingredient);
 			ingredients.add(ingredient);
 			managedRecipe.setIngredients(ingredients);
-//			 em.persist ingredient
-//			 ingredient.addRecipe(manageRecipe)
 			em.persist(managedRecipe);
 		
 

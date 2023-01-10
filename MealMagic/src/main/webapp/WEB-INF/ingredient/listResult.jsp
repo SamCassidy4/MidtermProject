@@ -12,24 +12,24 @@
 
 
 <c:choose>
-		<c:when test="${empty ingredients}">
-			<h2>No Ingredient Found</h2>
+		<c:when test="${empty recipes}">
+			<h2>No Recipes Found</h2>
 		</c:when>
 		<c:otherwise>
 			<table>
 				<thead>
 					<tr>
 						<!-- <th>ID</th> -->
-						<th>Ingredient List</th>
+						<th>Recipe List</th>
 
 					</tr>
 				</thead>
 				<tbody>
 
-					<c:forEach var="ingredient" items="${ingredients}">
+					<c:forEach var="recipe" items="${recipes }">
 
 						<tr>
-							<td><a href="getIngredient.do?id=${ingredient.id}">${ingredient.name}</a></td>
+							<td><a href="getIngredient.do?id=${recipe.id}">${recipe.name}</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
