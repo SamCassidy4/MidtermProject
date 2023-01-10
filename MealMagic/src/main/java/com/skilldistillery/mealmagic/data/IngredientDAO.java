@@ -19,7 +19,7 @@ public interface IngredientDAO {
 	
 	public List<Ingredient> findAll();
 	
-	public List<Recipe> findRecipeByIngredientKeyword(String keyword);
+	public List<Recipe> findRecipeByIngredientKeyword(String[] keyword);
 	
 	
 	

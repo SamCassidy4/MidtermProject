@@ -63,7 +63,7 @@ public class IngredientController {
 	}
 	
 	@RequestMapping("getRecipeFromIngredient.do")
-	public String showRecipe(Model model, String keyword) {
+	public String showRecipe(Model model, String[] keyword) {
 		model.addAttribute("recipes",ingredientDAO.findRecipeByIngredientKeyword(keyword));
 		
 		return "ingredient/listResult";

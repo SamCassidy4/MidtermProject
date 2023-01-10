@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
@@ -68,13 +69,28 @@ public class IngredientDAOimpl implements IngredientDAO {
 	}
 	
 	@Override
-	public List<Recipe> findRecipeByIngredientKeyword(String keyword){
-		String query = "SELECT r FROM Recipe r JOIN RecipeIngredient ri ON ri.recipe.id = r.id JOIN Ingredient i ON ri.ingredient.id "
-				+ "= i.id WHERE i.name LIKE :nameI";
-		List<Recipe> recipes = em.createQuery(query, Recipe.class).setParameter("nameI", "%" + keyword + "%")
-				.getResultList();
+	public List<Recipe> findRecipeByIngredientKeyword(String[] keyword){
+		String query = "SELECT DISTINCT r FROM Recipe r"; 
+
+		for(int i=0; i< keyword.length; i++) {
+			query += " JOIN RecipeIngredient ri" + i + " ON r.id = ri" + i + ".recipe.id";
+		}
+		query += " WHERE";
+		for(int i=0; i< keyword.length; i++) {
+			if(i > 0) {
+				query +=" AND";
+			}
+			query += " EXISTS (SELECT i FROM Ingredient i WHERE i.name LIKE :name" + i + " AND i.id = ri" + i + ".ingredient.id)";
+		}
+		TypedQuery<Recipe> tq = em.createQuery(query, Recipe.class);
+		for(int i=0; i< keyword.length; i++) {
+			tq.setParameter("name" + i,"%" + keyword[i] + "%");
+			
+		}
+		List<Recipe> recipes = tq.getResultList();
 		return recipes;
-	}
+
 	
 
+}
 }
