@@ -9,15 +9,15 @@ public interface CategoryDAO {
 	
 	public Category findById(int categoryId);
 	
-	public Category createCategory(Country country);
+	public Category createCategory(Category category);
 	
-	public boolean deleteCountry(int countryId);
+	public boolean deleteCategory(int categoryId);
 	
-	public Country updateCountry(int countryId, Country country);
+	public Category updateCategory(int categoryId, Category category);
 	
-	//public List<Country> findByKeyword(String keyword);   IDK IF WE NEED MAYBE?? 
+	//public List<Category> findByKeyword(String keyword);   IDK IF WE NEED MAYBE?? 
 	
-	public List<Country> findAll();
+	public List<Category> findAll();
 	
 	
 
