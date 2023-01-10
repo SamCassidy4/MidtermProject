@@ -61,50 +61,61 @@
  <form action="getRecipeFromIngredient.do" method="GET">
  <h2>
 <div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" name="flexCheckDefault" />
-  <label class="form-check-label" for="flexCheckDefault">Sugar</label>
+  <input class="form-check-input" type="checkbox" value="sugar" name="keyword" for="keyword" />
+  <label class="form-check-label">Sugar</label>
 </div>
 
 <div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" name="flexCheckChecked"/>
-  <label class="form-check-label" for="flexCheckDefault">Flour</label>
+  <input class="form-check-input" type="checkbox" value="all-purpose flour" name="keyword" for="keyword"/>
+  <label class="form-check-label">Flour</label>
 </div>
 <div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" name="flexCheckDefault" />
-  <label class="form-check-label" for="flexCheckDefault">Salt</label>
+  <input class="form-check-input" type="checkbox" value="salt" name="keyword" for="keyword" />
+  <label class="form-check-label">Salt</label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="butter" name="keyword" for="keyword"/>
+  <label class="form-check-label">Butter</label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="coconut milk" name="keyword" for="keyword" />
+  <label class="form-check-label">Coconut Milk</label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="pistachio" name="keyword" for="keyword"/>
+  <label class="form-check-label">Pistachio</label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="honey" name="keyword" for="keyword"/>
+  <label class="form-check-label">Honey</label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="nutmeg" name="keyword" for="keyword"/>
+  <label class="form-check-label">Nutmeg</label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="steak" name="keyword" for="keyword"" />
+  <label class="form-check-label">Steak</label>
 </div>
 
 <div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" name="flexCheckChecked"/>
-  <label class="form-check-label" for="flexCheckDefault">Butter</label>
+  <input class="form-check-input" type="checkbox" value="egg" name="keyword" for="keyword"/>
+  <label class="form-check-label">Egg</label>
 </div>
 <div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" name="flexCheckDefault" />
-  <label class="form-check-label" for="flexCheckDefault">Coconut Milk</label>
+  <input class="form-check-input" type="checkbox" value="garlic" name="keyword" for="keyword"/>
+  <label class="form-check-label">Garlic</label>
 </div>
 <div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" name="flexCheckChecked"/>
-  <label class="form-check-label" for="flexCheckDefault">Pistachio</label>
+  <input class="form-check-input" type="checkbox" value="milk" name="keyword" for="keyword"/>
+  <label class="form-check-label">Milk</label>
 </div>
 <div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" name="flexCheckDefault" />
-  <label class="form-check-label" for="flexCheckDefault">Honey</label>
-</div>
-<div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" name="flexCheckChecked"/>
-  <label class="form-check-label" for="flexCheckDefualt">Nutmeg</label>
-</div>
-<div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" name="flexCheckDefault" />
-  <label class="form-check-label" for="flexCheckDefault">Steak</label>
+  <input class="form-check-input" type="checkbox" value="cooking oil" name="keyword" for="keyword"/>
+  <label class="form-check-label">Cooking Oil</label>
 </div>
 
-<div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" name="flexCheckChecked"/>
-  <label class="form-check-label" for="flexCheckDefault">Egg</label>
-</div>
-
-<button type="submit" class="btn btn-outline-primary">Garlic</button>
+<button type="submit" class="btn btn-outline-primary">Submit</button>
 </form>
  </h2>
 
