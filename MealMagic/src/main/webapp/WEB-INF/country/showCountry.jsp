@@ -4,67 +4,40 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>${country.name }</title>
+<title>Show Country</title>
 <%@ include file="../bootstrap.jsp"%>
 </head>
 <body>
-<h1>Countries</h1>
+<h1>Country Details</h1>
 
-	<c:forEach var="country" items="${country.getName()}">
-		 <div class="form-group col-md-6">
-      	 <label for="ingredient.name">${ingredient.name}</label>
-      	 <ul>
-      	 <li>${RecipeIngredient.getIngredient().getName()}</li>
-      	 </ul>
-     	</div>
-		
-	</c:forEach>
-	
-	<c:choose>
-	 	<c:when test="${empty ingredient.name }">
-	
-	
-	 	</c:when>
-	
-	 	<c:otherwise>
-	
-	 	</c:otherwise>
-	
-	</c:choose>
-	
-<form action="createCountry.do" method="GET" >
-	
-      	 <input type="hidden" class="form-control" name="ind" placeholder="" value="${recipe.id} ">
-	<label for="country.name">${country.name}</label>
-      	 <input type="text" class="form-control" name="name" placeholder="New Ingredient">
-      	<!--  <input type="text" class="form-control" name="name" placeholder="New Ingredient">
-      	 <input type="text" class="form-control" name="name" placeholder="New Ingredient">
-      	 <input type="text" class="form-control" name="name" placeholder="New Ingredient"> -->
-	<br>
-	 <button type="submit" class="btn btn-primary">Update Ingredients!</button>
-	
-	
-</form>
-  
-  
+<div>
+  <h5>ID: ${country.id} Name: ${country.name}</h5>
+  <p>Continent: ${country.continent}</p>
+  <p>Region: ${country.region }</p>
+</div>
 
-
-	<c:choose> <c:when test="${empty sessionScope.loggedInUser}">
-        <a class="nav-link" href="login.do"> Login </a>  
-        </c:when>
-	<c:otherwise> <form action="delete.do" method="GET">
-		<input type="text" hidden="true" name="rid" value="${recipe.id }">
-		<input type="submit" value="Delete Recipe">
+	
+	
+	
+	<form action="showListCountry.do" method="GET">
+		<input type="text" hidden="true" name="id"  value="${recipe.id}">
+		<input type="submit" value="Show A List Of Countries For Recipes">
 	</form>
 	
-	<br>
-	<br>
+	<form action="updateCountryView.do" method="GET">
+		<input type="text" hidden="true" name="id"  value="${country.id}">
+		<input type="submit" value="Edit Country">
+    </form>
+    
+    <%-- <form action="deleteCountry.do" method="GET">   TO BE CONTINUED MAYBE.. 
+		<input type="text" hidden="true" name="id"  value="${country.id}">
+		<input type="submit" value="Delete Country">
+	</form> --%>
 	
-	<form action="updateView.do" method="GET">
+	  <form action="createCountryPage.do" method="GET">
 		<input type="text" hidden="true" name="id"  value="${recipe.id}">
-		<input type="submit" value="Edit Recipe">
-	</form></c:otherwise></c:choose>
-
+		<input type="submit" value="Create A New Country For Recipe">
+     </form>
 
 </body>
 </html>

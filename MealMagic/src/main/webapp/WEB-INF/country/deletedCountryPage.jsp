@@ -8,30 +8,26 @@
 <%@ include file="../bootstrap.jsp"%>
 </head>
 <body>
-<h1>List of All Recipes</h1>
-
-
-
 	<c:choose>
-		<c:when test="${empty deletedRecipe}">
-			<h2>Your Recipe Has Been Deleted</h2>
+		<c:when test="${empty deletedCountry}">
+			<h2>Your Country Was Deleted</h2>
 		</c:when>
 		<c:otherwise>
 			<table>
 				<thead>
 					<tr>
 						<!-- <th>ID</th> -->
-						<th>Recipe List</th>
+						<th>Country Was Not Deleted..</th>
 
 					</tr>
 				</thead>
 				<tbody>
 
-					<c:forEach var="recipe" items="${recipes}">
+					<c:forEach var="deletecountry" items="${country}">
 
 						<tr>
 							<%-- <td>${recipe.id}</td> --%>
-							<td><a href="getRecipe.do?id=${recipe.id}">${recipe.name}</a></td>
+							<td><a href="showCountry.do?id=${deletecountry.id}">${deletecountry.name}</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
