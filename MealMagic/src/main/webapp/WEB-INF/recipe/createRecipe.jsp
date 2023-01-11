@@ -29,15 +29,6 @@
       <select name="country.id" class="form-control">
         <option selected>Select a Country</option>
       <c:forEach var="c" items="${countries}">
-      
-  <%--       <option value="${c.id}">United States</option>
-        <option value="$">Mexico</option>
-        <option value="3">Colombia</option>
-        <option value="4">Thailand</option>
-        <option value="5">Italy</option>
-        <option value="6">Poland</option>
-        <option value="7">Lebanon</option> --%>
-        
         <option value="${c.id} ">${c.name }</option>
       
       </c:forEach>
@@ -46,7 +37,7 @@
     
      <div class="form-group col-md-4">
       <label for="category">Category</label>
-      <select name="category" class="form-control">
+      <select name="category.id" class="form-control">
         <option selected>Select a Category</option>
       <c:forEach var="c" items="${categories}">
         <option value="${c.id} ">${c.name}</option>
@@ -56,7 +47,7 @@
     
      <div class="form-group col-md-4">
       <label for="dietaryPreference">Dietary Preference</label>
-      <select name="dietaryPreference" class="form-control">
+      <select name="dietaryPreference.id" class="form-control">
         <option selected>Select a Dietary Preference</option>
       <c:forEach var="d" items="${dietaryPreferences}">
         <option value="${d.id} ">${d.name}</option>
