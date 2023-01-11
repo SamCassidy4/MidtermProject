@@ -52,4 +52,10 @@ public class CommmentDAOimpl implements CommentDAO {
 		return updatedComment;
 	}
 
+	@Override
+	public Comment findbyId(int id) {
+		Comment comment = em.find(Comment.class, id);
+		return comment;
+	}
+
 }

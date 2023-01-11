@@ -77,7 +77,7 @@
 		<div>
 		<p>${comment.remark}</p>
 		<form action="deleteComment.do" method.get>
-		<input hidden="true" name="commentId" value="${recipe.id}">
+		<input hidden="true" for="commentId" name="commentId" value="${comment.id}">
 		<input type="submit" value="delete">
 		</form>
 		
