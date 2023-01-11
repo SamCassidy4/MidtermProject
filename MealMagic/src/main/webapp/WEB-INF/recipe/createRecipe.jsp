@@ -41,6 +41,17 @@
       </c:forEach>
       </select>
     </div>
+    
+     <div class="form-group col-md-4">
+      <label for="category">Category</label>
+      <select name="category_id.id" class="form-control">
+        <option selected>Select a Category</option>
+      <c:forEach var="c" items="${categories}">
+        <option value="${c.id} ">${c.name}</option>
+      </c:forEach>
+      </select>
+    </div>
+    
 </div>
     <div class="form-group col-md-6">
       <label for="imageUrl">Image Url </label>
@@ -101,6 +112,20 @@ integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+
 		<input type="text" hidden="true" name="id"  value="${recipe.id}">
 		<input type="submit" value="Show A List Of Countries For Recipes">
 	</form>
+	
 	<br>
+	
+	 <form action="createCategoryPage.do" method="GET">
+		<input type="text" hidden="true" name="id"  value="${category.id}">
+		<input type="submit" value="Add A New Category For Recipe">
+     </form>
+     <br>
+     
+     <form action="showListCategory.do" method="GET">
+		<input type="text" hidden="true" name="id"  value="${recipe.id}">
+		<input type="submit" value="Show A List Of Categories">
+	</form>
+	<br>
+   
 </body>
 </html>

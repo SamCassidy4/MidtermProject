@@ -70,6 +70,7 @@ class RecipeTest {
 		assertEquals(5, recipe.getRatings().get(0).getRating());
 		assertEquals(1, recipe.getRatings().get(0).getRecipe().getId());
 		assertEquals(1, recipe.getUser().getId());
+		assertEquals(1, recipe.getCategories().get(0).getId());
 	}
 
 	@Test
