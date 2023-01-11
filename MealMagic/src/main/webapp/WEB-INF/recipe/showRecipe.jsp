@@ -52,8 +52,10 @@
 		<br>
 
 		<h3>Dietary Preference:</h3>
-         <h4>Name: ${recipe.dietaryPreferences.get(0).getName()} , Description: ${recipe.dietaryPreferences.get(0).getDescription()}</h4>
-
+          <c:forEach var="preference" items="${recipe.dietaryPreferences}" >
+           
+         <h4>Name: ${preference.name} , Description: ${preference.description}</h4>
+          </c:forEach>
 		<br>
 		<h3>Notes:</h3>
 		<h4>${recipe.notes}</h4>
@@ -62,7 +64,16 @@
 		<h4> ${recipe.prepTime}</h4>
 		<br>
 		<h3>Ratings:</h3>
-		<h4><c:when test="${not empty recipe.ratings}"><${recipe.ratings.get(0).getRating()}</c:when></h4>
+		
+		<h4>
+		
+		<c:if test="${not empty recipe.ratings}">
+		<c:forEach var="rating" items="${recipe.ratings}" >
+		<h3>${rating.rating}</h3>
+		</c:forEach>
+		</c:if>
+		</h4>
+		
 		<br>
 		<h3>Shared By:</h3>
 		<h4>${recipe.user.getUsername()}</h4>
@@ -75,7 +86,9 @@
 		<h4>${recipe.calories}</h4>
 		<br>
 		<h3>Categories:</h3>
-		<h4>${recipe.categories.get(0).getName()}</h4>
+		<c:forEach var="category" items="${recipe.categories}" >
+		<h4>${category.name}</h4>
+		</c:forEach>
 		<br>
 		<h3>Comments:</h3>
 
