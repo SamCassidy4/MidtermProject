@@ -85,7 +85,7 @@
 		<h3>Calories: </h3>
 		<h4>${recipe.calories}</h4>
 		<br>
-		<h3>Categories:</h3>
+		<h3>Category:</h3>
 		<c:forEach var="category" items="${recipe.categories}" >
 		<h4>${category.name}</h4>
 		</c:forEach>

@@ -1,5 +1,6 @@
 package com.skilldistillery.mealmagic.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -31,6 +32,17 @@ public class DietaryPreference {
 
 	public DietaryPreference() {
 		super();
+	}
+	
+	public void addRecipe(Recipe recipe) {
+		if (recipes == null) {
+			recipes = new ArrayList<>();
+			
+		}
+		if(! recipes.contains(recipe)) {
+			recipes.add(recipe);
+			recipe.addDietaryPreferences(this);
+		}
 	}
 
 	public String getDescription() {

@@ -1,5 +1,6 @@
 package com.skilldistillery.mealmagic.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -85,6 +86,28 @@ public class Recipe {
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User user;
+	
+	
+	public void addDietaryPreferences(DietaryPreference dietaryPreference) {
+		if (dietaryPreferences == null ) {
+			dietaryPreferences = new ArrayList<>();
+		}
+		if(! dietaryPreferences.contains(dietaryPreference)) {
+			dietaryPreferences.add(dietaryPreference);
+			dietaryPreference.addRecipe(this);
+		}
+	}
+	
+	public void addCategory(Category category) {
+		if (categories == null ) {
+			categories = new ArrayList<>();
+		}
+		if(! categories.contains(category)) {
+			categories.add(category);
+		    category.addRecipe(this);
+		}
+	}
+	
 	
 	
 	public User getUser() {
