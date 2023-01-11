@@ -22,12 +22,22 @@ public class DietaryPreference {
 	
 	private String name;
 	
+	private String description;
+	
 	@ManyToMany
 	@JoinTable(name="dietary_preference_has_recipe", joinColumns=@JoinColumn(name="dietary_preferences_id"), inverseJoinColumns=@JoinColumn(name="recipe_id"))
 	private List<Recipe> recipes;
 
 	public DietaryPreference() {
 		super();
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public int getId() {
@@ -73,7 +83,7 @@ public class DietaryPreference {
 
 	@Override
 	public String toString() {
-		return "DietaryPreference [id=" + id + ", name=" + name + "]";
+		return "DietaryPreference [id=" + id + ", name=" + name + ", description=" + description + "]";
 	}
 	
 	
