@@ -62,7 +62,7 @@
 		<h4> ${recipe.prepTime}</h4>
 		<br>
 		<h3>Ratings:</h3>
-		<h4>${recipe.ratings.get(0).getRating()}</h4>
+		<h4><c:when test="${not empty recipe.ratings}"><${recipe.ratings.get(0).getRating()}</c:when></h4>
 		<br>
 		<h3>Shared By:</h3>
 		<h4>${recipe.user.getUsername()}</h4>
