@@ -9,7 +9,8 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
-import com.skilldistillery.mealmagic.entities.Country;
+import com.skilldistillery.mealmagic.entities.Category;
+import com.skilldistillery.mealmagic.entities.DietaryPreference;
 import com.skilldistillery.mealmagic.entities.Ingredient;
 import com.skilldistillery.mealmagic.entities.Recipe;
 
@@ -26,7 +27,16 @@ public class RecipeDAOImpl implements RecipeDAO {
 	}
 
 	@Override
-	public Recipe createRecipe(Recipe recipe) {
+	public Recipe createRecipe(Recipe recipe, String [] dietaryPreferenceCollection, String [] categoryCollection) {
+		for (String dietaryPreference : dietaryPreferenceCollection) {
+			DietaryPreference dp = em.find(DietaryPreference.class, Integer.parseInt(dietaryPreference));
+			recipe.addDietaryPreferences(dp);
+		}
+		for (String category : categoryCollection) {
+			Category c = em.find(Category.class, Integer.parseInt(category));
+			recipe.addCategory(c);
+		}
+		
 		em.persist(recipe);
 		return recipe;
 	}

@@ -1,5 +1,6 @@
 package com.skilldistillery.mealmagic.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -24,6 +25,18 @@ public class Category {
 	@JoinTable(name="category_has_recipe",joinColumns=@JoinColumn(name="category_id"),inverseJoinColumns=@JoinColumn(name="recipe_id"))
 	private List<Recipe> recipes;
 	
+	
+	
+	public void addRecipe (Recipe recipe) {
+		if (recipes == null) {
+			recipes = new ArrayList<>();
+			
+		}
+		if(! recipes.contains(recipe)) {
+			recipes.add(recipe);
+			recipe.addCategory(this);
+		}
+	}
 
 	public Category() {
 		super();

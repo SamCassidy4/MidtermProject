@@ -32,10 +32,12 @@ public class RecipeController {
 	}
 
 	@RequestMapping("create.do")
-	public String create(Model model, Recipe recipe, Category category, HttpSession session) {
+	public String create(Model model, Recipe recipe, HttpSession session, String [] dietaryPreferenceCollection, String [] categoryCollection) {
 		recipe.setUser((User) session.getAttribute("loggedInUser"));
-		Recipe create = recipeDAO.createRecipe(recipe);
+		Recipe create = recipeDAO.createRecipe(recipe, dietaryPreferenceCollection, categoryCollection);
 		model.addAttribute("recipe", create);
+		
+		
 		return "recipe/showRecipe";
 	}
 
