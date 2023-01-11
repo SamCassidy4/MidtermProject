@@ -41,6 +41,27 @@
       </c:forEach>
       </select>
     </div>
+    
+     <div class="form-group col-md-4">
+      <label for="category">Category</label>
+      <select name="category" class="form-control">
+        <option selected>Select a Category</option>
+      <c:forEach var="c" items="${categories}">
+        <option value="${c.id} ">${c.name}</option>
+      </c:forEach>
+      </select>
+    </div>
+    
+     <div class="form-group col-md-4">
+      <label for="dietaryPreference">Dietary Preference</label>
+      <select name="dietaryPreference" class="form-control">
+        <option selected>Select a Dietary Preference</option>
+      <c:forEach var="d" items="${dietaryPreferences}">
+        <option value="${d.id} ">${d.name}</option>
+      </c:forEach>
+      </select>
+    </div>
+    
 </div>
     <div class="form-group col-md-6">
       <label for="imageUrl">Image Url </label>
@@ -101,6 +122,32 @@ integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+
 		<input type="text" hidden="true" name="id"  value="${recipe.id}">
 		<input type="submit" value="Show A List Of Countries For Recipes">
 	</form>
+	
 	<br>
+	
+	 <form action="createCategoryPage.do" method="GET">
+		<input type="text" hidden="true" name="id"  value="${category.id}">
+		<input type="submit" value="Add A New Category For Recipe">
+     </form>
+     <br>
+     
+     <form action="showListCategory.do" method="GET">
+		<input type="text" hidden="true" name="id"  value="${recipe.id}">
+		<input type="submit" value="Show A List Of Categories">
+	</form>
+	<br>
+	
+	 <form action="createDpPage.do" method="GET">
+		<input type="text" hidden="true" name="id"  value="${dp.id}">
+		<input type="submit" value="Add A New Dietary Preference">
+     </form>
+     <br>
+     
+     <form action="showListDp.do" method="GET">
+		<input type="text" hidden="true" name="id"  value="${dietaryPreference.id}">
+		<input type="submit" value="Show A List Of Dietary Preferences">
+	</form>
+	<br>
+   
 </body>
 </html>

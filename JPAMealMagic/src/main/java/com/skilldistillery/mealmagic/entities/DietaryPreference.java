@@ -5,6 +5,7 @@ import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -17,10 +18,12 @@ import javax.persistence.Table;
 public class DietaryPreference {
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
 	private String name;
+	
+	private String description;
 	
 	@ManyToMany
 	@JoinTable(name="dietary_preference_has_recipe", joinColumns=@JoinColumn(name="dietary_preferences_id"), inverseJoinColumns=@JoinColumn(name="recipe_id"))
@@ -28,6 +31,14 @@ public class DietaryPreference {
 
 	public DietaryPreference() {
 		super();
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public int getId() {
@@ -73,7 +84,7 @@ public class DietaryPreference {
 
 	@Override
 	public String toString() {
-		return "DietaryPreference [id=" + id + ", name=" + name + "]";
+		return "DietaryPreference [id=" + id + ", name=" + name + ", description=" + description + "]";
 	}
 	
 	
