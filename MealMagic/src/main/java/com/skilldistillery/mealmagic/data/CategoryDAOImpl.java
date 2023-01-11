@@ -41,7 +41,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 
 	@Override
 	public Category updateCategory(int categoryId, Category category) {
-		Category updateCategory = em.find(Category.class, category);
+		Category updateCategory = em.find(Category.class, categoryId);
 		
 		if(updateCategory != null) {
 			updateCategory.setName(category.getName());

@@ -8,7 +8,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.skilldistillery.mealmagic.data.CategoryDAO;
 import com.skilldistillery.mealmagic.data.RecipeDAO;
+import com.skilldistillery.mealmagic.entities.Category;
 import com.skilldistillery.mealmagic.entities.Recipe;
 import com.skilldistillery.mealmagic.entities.User;
 
@@ -17,6 +19,9 @@ public class RecipeController {
 
 	@Autowired
 	private RecipeDAO recipeDAO;
+	
+	@Autowired
+	private CategoryDAO categoryDAO;
 
 	@RequestMapping("getRecipe.do")
 	public String showRecipe(Model model, int id) {
@@ -27,7 +32,7 @@ public class RecipeController {
 	}
 
 	@RequestMapping("create.do")
-	public String create(Model model, Recipe recipe, HttpSession session) {
+	public String create(Model model, Recipe recipe, Category category, HttpSession session) {
 		recipe.setUser((User) session.getAttribute("loggedInUser"));
 		Recipe create = recipeDAO.createRecipe(recipe);
 		model.addAttribute("recipe", create);
