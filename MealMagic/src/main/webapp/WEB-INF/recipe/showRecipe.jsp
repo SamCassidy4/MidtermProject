@@ -92,8 +92,13 @@
 									
 		<div>
 		<p>${comment.remark}</p>
+<<<<<<< HEAD
 		<form action="deleteComment.do" method="GET">
 		<input hidden="true" name="commentId" value="${recipe.id}">
+=======
+		<form action="deleteComment.do" method.get>
+		<input hidden="true" for="commentId" name="commentId" value="${comment.id}">
+>>>>>>> 1bf9329a2e680ed4588e5f53dbf4f4d4cb9336f4
 		<input type="submit" value="delete">
 		</form>
 		
