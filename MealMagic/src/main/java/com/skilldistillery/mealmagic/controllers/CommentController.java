@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.mealmagic.data.CommentDAO;
 import com.skilldistillery.mealmagic.data.RecipeDAO;
@@ -25,17 +27,29 @@ private CommentDAO commentDAO;
 private RecipeDAO recipeDAO;
 
 @RequestMapping(path = "addComment.do", method = RequestMethod.POST)
-public String addComment(Model model, Comment comment, HttpSession session) {
-	
+public ModelAndView addComment(Model model, Comment comment, HttpSession session, RedirectAttributes redir) {
+	ModelAndView mv = new ModelAndView();
 	comment.setPostedDate(LocalDateTime.now());
 	
 	Comment addedComment = commentDAO.addComment(comment);
 	
 	Recipe recipe  = recipeDAO.findById(addedComment.getRecipe().getId());
 	
-	model.addAttribute("recipe", recipe);
+	redir.addFlashAttribute("recipe", recipe);
+	mv.setViewName("redirect:addedComment");
+	return mv;
 	
-	return "recipe/showRecipe";
+}
+	
+@RequestMapping(path = "addedComment.do", method = RequestMethod.GET)
+public String addComment(Model model, HttpSession session, RedirectAttributes redir) {
+	
+Recipe recipe = (Recipe) redir.getAttribute("recipe");
+
+model.addAttribute("recipe",recipe);
+
+return "recipe/showRecipe";
+
 }
 @RequestMapping("deleteComment.do")
 public String deleteComment(Model model, int commentId, HttpSession session) {
