@@ -8,11 +8,10 @@
 <%@ include file="../bootstrap.jsp"%>
 <link href="css/style.css" rel="stylesheet">
 </head>
-<body>
+<body id="login">
 
 
-<section class="vh-100 bg-image"
-  style="background-image: url('https://img.freepik.com/free-photo/healthy-diet-background-with-thyme-leaf-border_53876-106117.jpg?w=2000');">
+<section class="vh-100 bg-image">
   <div class="mask d-flex align-items-center h-100 gradient-custom-3">
     <div class="container h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
