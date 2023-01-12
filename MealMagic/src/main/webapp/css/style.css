@@ -32,8 +32,8 @@ body{
 
 
 .createRecipePage{
-	background-image: url(https://images.pexels.com/photos/1565982/pexels-photo-1565982.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
-	
+	background-image: url(https://static.wixstatic.com/media/0c8d97d482cd4c658502fff90ec9275b.jpg/v1/fit/w_2500,h_1330,al_c/0c8d97d482cd4c658502fff90ec9275b.jpg);
+	background-size: contain;
 	background-repeat: no-repeat;
 background-size: cover;
 	
@@ -134,6 +134,11 @@ background-size: cover;
 }
 #listCountry{
 	background-image: url(https://media.istockphoto.com/id/1317427168/photo/wooden-background.jpg?b=1&s=170667a&w=0&k=20&c=p3xHHSls-qCHPuU2x8TnzzONHtRj7kGLHj2ZjTaC9zY=);
+background-repeat: no-repeat;
+background-size: cover;
+}
+#updateRecipe{
+background-image: url(https://www.newidea.com.au/media/111539/27.jpeg?width=720&center=0.0,0.0);
 background-repeat: no-repeat;
 background-size: cover;
 }
