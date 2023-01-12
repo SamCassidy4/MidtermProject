@@ -14,8 +14,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.mealmagic.data.CommentDAO;
 import com.skilldistillery.mealmagic.data.RecipeDAO;
+import com.skilldistillery.mealmagic.data.UserDAO;
 import com.skilldistillery.mealmagic.entities.Comment;
 import com.skilldistillery.mealmagic.entities.Recipe;
+import com.skilldistillery.mealmagic.entities.User;
 
 @Controller
 public class CommentController {
@@ -26,27 +28,36 @@ private CommentDAO commentDAO;
 @Autowired
 private RecipeDAO recipeDAO;
 
+@Autowired
+private UserDAO userDAO;
+
 @RequestMapping(path = "addComment.do", method = RequestMethod.POST)
-public ModelAndView addComment(Model model, Comment comment, HttpSession session, RedirectAttributes redir) {
-	ModelAndView mv = new ModelAndView();
+public String addComment(Comment comment, Model model) {
+	
 	comment.setPostedDate(LocalDateTime.now());
 	
 	Comment addedComment = commentDAO.addComment(comment);
 	
 	Recipe recipe  = recipeDAO.findById(addedComment.getRecipe().getId());
 	
-	redir.addFlashAttribute("recipe", recipe);
-	mv.setViewName("redirect:addedComment");
-	return mv;
+	model.addAttribute("recipe", recipe);
+	
+	return "recipe/showRecipe";
 	
 }
 	
 @RequestMapping(path = "addedComment.do", method = RequestMethod.GET)
-public String addComment(Model model, HttpSession session, RedirectAttributes redir) {
-	
-Recipe recipe = (Recipe) redir.getAttribute("recipe");
+public String addComment(HttpSession session) {
 
-model.addAttribute("recipe",recipe);
+	User user1 = (User) session.getAttribute("loggedInUser");
+
+	User user = userDAO.findById(user1.getId());
+
+	session.setAttribute("loggedInUser", user);
+	 
+	
+	
+	
 
 return "recipe/showRecipe";
 

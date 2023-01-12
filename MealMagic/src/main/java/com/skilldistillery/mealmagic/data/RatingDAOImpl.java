@@ -1,5 +1,7 @@
 package com.skilldistillery.mealmagic.data;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -8,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import com.skilldistillery.mealmagic.entities.Rating;
 import com.skilldistillery.mealmagic.entities.Recipe;
-import com.skilldistillery.mealmagic.entities.User;
 @Service
 @Transactional
 public class RatingDAOImpl implements RatingDAO {
@@ -16,16 +17,38 @@ public class RatingDAOImpl implements RatingDAO {
 	private EntityManager em;
 
 	@Override
-	public Rating createRating(Integer rating, int userId, int recipeId) {
-		System.out.println("DaoImpl"+ " " + rating + " "+ userId +" "+ recipeId +" ***********************************************************");
-		Rating bigDaddy = new Rating();
-		User user = em.find(User.class, userId);
-		Recipe recipe = em.find(Recipe.class, recipeId);
-		bigDaddy.setRecipe(recipe);
-		bigDaddy.setUser(user);
-		em.persist(bigDaddy);
-		recipe.addRating(bigDaddy);
-		return bigDaddy;
+	public Rating createRating(Rating rating) {
+		
+		em.persist(rating);
+		
+		 
+
+		return rating;
+	}
+
+	@Override
+	public int averageRating(int recipeId) {
+		
+	
+		
+	
+		
+		List<Rating> rating = em.find(Recipe.class, recipeId).getRatings();
+		
+		
+		int sum = 0;
+		
+		for(int i = 0; i < rating.size(); i++) {
+			
+			sum = sum + rating.get(i).getRating();
+			
+		}
+		
+		int averageRating = sum / rating.size();
+		
+		return averageRating;
+		
+		
 	}
 
 	

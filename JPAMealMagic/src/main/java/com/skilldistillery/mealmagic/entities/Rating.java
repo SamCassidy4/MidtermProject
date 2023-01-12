@@ -31,7 +31,7 @@ public class Rating {
 	@MapsId(value = "recipeId")
 	private Recipe recipe;
 	
-	
+	public Rating() {}
 
 	public Recipe getRecipe() {
 		return recipe;

@@ -21,6 +21,7 @@ import com.skilldistillery.mealmagic.entities.Category;
 import com.skilldistillery.mealmagic.entities.Country;
 import com.skilldistillery.mealmagic.entities.DietaryPreference;
 import com.skilldistillery.mealmagic.entities.Rating;
+import com.skilldistillery.mealmagic.entities.RatingId;
 import com.skilldistillery.mealmagic.entities.Recipe;
 import com.skilldistillery.mealmagic.entities.User;
 
@@ -168,13 +169,22 @@ public class UserController {
 	}
 
 	@RequestMapping(path = "rate.do")
-	public String createRating(HttpSession session,String rating , String recipeId,  Model model) {
-		int userId = ((User) session.getAttribute("loggedInUser")).getId();
-		System.out.println("userId = " + userId + "rating = " + rating +"recipeId =" + recipeId);
+	public String createRating(HttpSession session,Integer rate , int recipeId, Model model) {
+		User user = (User) session.getAttribute("loggedInUser");
+		User user1 = userDao.findById(user.getId());
+		session.setAttribute("loggedInUser", user1);
+		Recipe recipe = recipeDao.findById(recipeId);
+		model.addAttribute("recipe", recipe);
+		Rating rating = new Rating();
+		rating.setUser(user1);
+		rating.setRecipe(recipe);
+		rating.setRating(rate);
+		RatingId id = new RatingId(recipeId, user1.getId());
+		rating.setId(id);
+		ratingDao.createRating(rating);
 		
-		ratingDao.createRating(Integer.parseInt(rating), Integer.parseInt(recipeId),userId);
-		model.addAttribute("recipe",recipeDao.findById(Integer.parseInt(recipeId)));
 		return "recipe/showRecipe";
+		
 		
 
 		}
