@@ -4,10 +4,22 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Delete Confirmation</title>
 <%@ include file="../bootstrap.jsp"%>
 </head>
 <body>
-<h1>Search</h1>
+	<c:redirect context="addedComment.do">
+	</c:redirect>
+				
+			</table>
+	<%-- 	</c:otherwise>
+	</c:choose>
+	</div> --%>
 </body>
 </html>
+
+
+
+
+
+

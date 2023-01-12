@@ -6,6 +6,8 @@
 <meta charset="UTF-8">
 <title>Create Recipe</title>
 <%@ include file="../bootstrap.jsp"%>
+<link href="css/style.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 <body>
 <h1>Create A New Recipe</h1>
@@ -44,10 +46,20 @@
     
      <div class="form-group col-md-4">
       <label for="category">Category</label>
-      <select name="category_id.id" class="form-control">
+      <select name="category" class="form-control">
         <option selected>Select a Category</option>
       <c:forEach var="c" items="${categories}">
         <option value="${c.id} ">${c.name}</option>
+      </c:forEach>
+      </select>
+    </div>
+    
+     <div class="form-group col-md-4">
+      <label for="dietaryPreference">Dietary Preference</label>
+      <select name="dietaryPreference" class="form-control">
+        <option selected>Select a Dietary Preference</option>
+      <c:forEach var="d" items="${dietaryPreferences}">
+        <option value="${d.id} ">${d.name}</option>
       </c:forEach>
       </select>
     </div>
@@ -124,6 +136,18 @@ integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+
      <form action="showListCategory.do" method="GET">
 		<input type="text" hidden="true" name="id"  value="${recipe.id}">
 		<input type="submit" value="Show A List Of Categories">
+	</form>
+	<br>
+	
+	 <form action="createDpPage.do" method="GET">
+		<input type="text" hidden="true" name="id"  value="${dp.id}">
+		<input type="submit" value="Add A New Dietary Preference">
+     </form>
+     <br>
+     
+     <form action="showListDp.do" method="GET">
+		<input type="text" hidden="true" name="id"  value="${dietaryPreference.id}">
+		<input type="submit" value="Show A List Of Dietary Preferences">
 	</form>
 	<br>
    

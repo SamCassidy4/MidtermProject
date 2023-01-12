@@ -13,10 +13,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.skilldistillery.mealmagic.data.CategoryDAO;
 import com.skilldistillery.mealmagic.data.CountryDAO;
+import com.skilldistillery.mealmagic.data.DietaryPreferenceDAO;
+import com.skilldistillery.mealmagic.data.RatingDAO;
 import com.skilldistillery.mealmagic.data.RecipeDAO;
 import com.skilldistillery.mealmagic.data.UserDAO;
 import com.skilldistillery.mealmagic.entities.Category;
 import com.skilldistillery.mealmagic.entities.Country;
+import com.skilldistillery.mealmagic.entities.DietaryPreference;
+import com.skilldistillery.mealmagic.entities.Rating;
+import com.skilldistillery.mealmagic.entities.RatingId;
 import com.skilldistillery.mealmagic.entities.Recipe;
 import com.skilldistillery.mealmagic.entities.User;
 
@@ -31,6 +36,10 @@ public class UserController {
 	private CountryDAO countryDao;
 	@Autowired
 	private CategoryDAO categoryDao;
+	@Autowired
+	private DietaryPreferenceDAO dpDao;
+	@Autowired
+	private RatingDAO ratingDao;
 
 	@RequestMapping(path = { "/", "home.do" })
 	public String home(Model model) {
@@ -87,12 +96,12 @@ public class UserController {
 
 	@RequestMapping(path = "deleteUser.do", method = RequestMethod.GET)
 	public String deleteUser(int id, HttpSession session) {
-		List<Recipe>recipes = userDao.findById(id).getRecipes();
-		
+		List<Recipe> recipes = userDao.findById(id).getRecipes();
+
 		for (Recipe recipe : recipes) {
 			recipeDao.deleteRecipe(recipe.getId());
 		}
-		
+
 		boolean deletedUser = userDao.deleteUser(id);
 
 		if (session.getAttribute("loggedInUser") != null) {
@@ -110,10 +119,12 @@ public class UserController {
 
 	@RequestMapping(path = "uploadrecipes.do")
 	public String uploadRecipe(Model model) {
-	  	List<Country>countries = countryDao.findAll();
-	  	List<Category>categories = categoryDao.findAll();
-		model.addAttribute("countries",countries);
-		model.addAttribute("categories",categories);
+		List<Country> countries = countryDao.findAll();
+		List<Category> categories = categoryDao.findAll();
+		List<DietaryPreference> dp = dpDao.findAll();
+		model.addAttribute("countries", countries);
+		model.addAttribute("categories", categories);
+		model.addAttribute("dietaryPreferences", dp);
 		return "recipe/createRecipe";
 
 	}
@@ -157,4 +168,26 @@ public class UserController {
 		return "home";
 	}
 
-}
+	@RequestMapping(path = "rate.do")
+	public String createRating(HttpSession session,Integer rate , int recipeId, Model model) {
+		User user = (User) session.getAttribute("loggedInUser");
+		User user1 = userDao.findById(user.getId());
+		session.setAttribute("loggedInUser", user1);
+		Recipe recipe = recipeDao.findById(recipeId);
+		model.addAttribute("recipe", recipe);
+		Rating rating = new Rating();
+		rating.setUser(user1);
+		rating.setRecipe(recipe);
+		rating.setRating(rate);
+		RatingId id = new RatingId(recipeId, user1.getId());
+		rating.setId(id);
+		ratingDao.createRating(rating);
+		
+		return "recipe/showRecipe";
+		
+		
+
+		}
+
+	}
+

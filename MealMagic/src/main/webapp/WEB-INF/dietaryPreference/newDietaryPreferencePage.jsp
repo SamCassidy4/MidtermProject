@@ -10,7 +10,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 <body>
-<h1>Create A New Category</h1>
+<h1>Create A New Dietary Preference</h1>
 
 
 <section class="vh-100 bg-image"
@@ -21,13 +21,17 @@
         <div class="col-12 col-md-9 col-lg-7 col-xl-6">
           <div class="card" style="border-radius: 15px;">
             <div class="card-body p-5">
-              <h2 class="text-uppercase text-center mb-5">Create A New Category Name</h2>
+              <h2 class="text-uppercase text-center mb-5">Create A New Dietary Preference</h2>
 
-              <form action="createCategory.do" method="GET">
+              <form action="createDp.do" method="GET">
 
                 <div class="form-outline mb-4">
                   <input type="text" name="name" class="form-control form-control-lg" />
                   <label class="name" for="name">Name</label>
+                </div>
+                <div class="form-outline mb-4">
+                  <input type="text" name="description" class="form-control form-control-lg" />
+                  <label class="description" for="description">Description</label>
                 </div>
                 <div class="d-flex justify-content-center">
                   <button type="submit"

@@ -1,5 +1,6 @@
 package com.skilldistillery.mealmagic.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -87,6 +88,38 @@ public class Recipe {
 	private User user;
 	
 	
+	public void addDietaryPreferences(DietaryPreference dietaryPreference) {
+		if (dietaryPreferences == null ) {
+			dietaryPreferences = new ArrayList<>();
+		}
+		if(! dietaryPreferences.contains(dietaryPreference)) {
+			dietaryPreferences.add(dietaryPreference);
+			dietaryPreference.addRecipe(this);
+		}
+	}
+	
+	public void addCategory(Category category) {
+		if (categories == null ) {
+			categories = new ArrayList<>();
+		}
+		if(! categories.contains(category)) {
+			categories.add(category);
+		    category.addRecipe(this);
+		}
+	}
+	
+	public void addRating(Rating rating) {
+		if(ratings == null) {
+			ratings = new ArrayList<>();
+		}
+		if(!ratings.contains(rating)) {
+			ratings.add(rating);
+		}
+	}
+	
+	
+	
+	
 	public User getUser() {
 		return user;
 	}
@@ -108,7 +141,22 @@ public class Recipe {
 	public Recipe() {
 		super();
 	}
-
+	public int getAvgRating() {
+		
+		int sum = 0;
+		int averageRating = 0;
+		if(ratings != null) {
+		for(int i = 0; i < ratings.size(); i++) {
+			
+			sum = sum + ratings.get(i).getRating();
+			
+		}
+		
+		averageRating = sum / ratings.size();
+		}
+		return averageRating;
+		
+	}
 	public int getId() {
 		return id;
 	}

@@ -12,4 +12,6 @@ public boolean deleteComment(int commentId);
 
 public Comment editComment(Comment comment);
 
+public Comment findbyId(int id);
+
 }

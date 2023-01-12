@@ -47,11 +47,6 @@ public class IngredientController {
 		return "ingredient/showIngredient";
 	}
 
-//	@RequestMapping("searchIngredient.do")
-//	public String findByKeyword(Model model, String keyword) {
-//		model.addAttribute("ingredients", ingredientDAO.findByKeyword(keyword));
-//		return "ingredient/listResult";
-//	}
 
 	@RequestMapping("getIngredient.do")
 	public String showIngredient(Model model, int id) {
