@@ -141,7 +141,22 @@ public class Recipe {
 	public Recipe() {
 		super();
 	}
-
+	public int getAvgRating() {
+		
+		int sum = 0;
+		int averageRating = 0;
+		if(ratings != null) {
+		for(int i = 0; i < ratings.size(); i++) {
+			
+			sum = sum + ratings.get(i).getRating();
+			
+		}
+		
+		averageRating = sum / ratings.size();
+		}
+		return averageRating;
+		
+	}
 	public int getId() {
 		return id;
 	}

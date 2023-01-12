@@ -9,11 +9,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.mealmagic.data.CommentDAO;
 import com.skilldistillery.mealmagic.data.RecipeDAO;
+import com.skilldistillery.mealmagic.data.UserDAO;
 import com.skilldistillery.mealmagic.entities.Comment;
 import com.skilldistillery.mealmagic.entities.Recipe;
+import com.skilldistillery.mealmagic.entities.User;
 
 @Controller
 public class CommentController {
@@ -24,8 +28,11 @@ private CommentDAO commentDAO;
 @Autowired
 private RecipeDAO recipeDAO;
 
+@Autowired
+private UserDAO userDAO;
+
 @RequestMapping(path = "addComment.do", method = RequestMethod.POST)
-public String addComment(Model model, Comment comment, HttpSession session) {
+public String addComment(Comment comment, Model model) {
 	
 	comment.setPostedDate(LocalDateTime.now());
 	
@@ -36,6 +43,24 @@ public String addComment(Model model, Comment comment, HttpSession session) {
 	model.addAttribute("recipe", recipe);
 	
 	return "recipe/showRecipe";
+	
+}
+	
+@RequestMapping(path = "addedComment.do", method = RequestMethod.GET)
+public String addComment(HttpSession session) {
+
+	User user1 = (User) session.getAttribute("loggedInUser");
+
+	User user = userDAO.findById(user1.getId());
+
+	session.setAttribute("loggedInUser", user);
+	 
+	
+	
+	
+
+return "recipe/showRecipe";
+
 }
 @RequestMapping("deleteComment.do")
 public String deleteComment(Model model, int commentId, HttpSession session) {

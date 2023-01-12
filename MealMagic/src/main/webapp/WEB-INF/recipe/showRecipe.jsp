@@ -70,7 +70,10 @@
 		<c:if test="${not empty recipe.ratings}">
 		<c:forEach var="rating" items="${recipe.ratings}" >
 		<h3>${rating.rating}</h3>
+		
+		
 		</c:forEach>
+		<h4> average: ${recipe.getAvgRating()} </h4>
 		</c:if>
 		</h4>
 		
@@ -106,10 +109,9 @@
 		<div>
 		<p>${comment.remark}</p>
 
-		<form action="deleteComment.do" method="GET">
-		<input hidden="true" name="commentId" value="${recipe.id}">
+	
 
-		<form action="deleteComment.do" method.get>
+		<form action="deleteComment.do" method="POST">
 		<input hidden="true" for="commentId" name="commentId" value="${comment.id}">
 
 		<input type="submit" value="delete">
@@ -120,7 +122,7 @@
 <br>
 		
 	<div class="form-group">
-		<form action="addComment.do" method="GET">
+		<form action="addComment.do" method="POST">
 			<label for="remark">Comment:</label>
 			<textarea class="form-control" rows="5" name="remark"></textarea>
 			<input hidden="true" name="recipe.id" value="${recipe.id}"> 
@@ -133,24 +135,24 @@
 <!-- RATING HERE -->
  <form action="rate.do" method="GET">
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="rating" value="1">
-  <label class="form-check-label" for="rating">1</label>
+  <input class="form-check-input" type="radio" name="rate" value="1">
+  <label class="form-check-label" for="rate">1</label>
 </div>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="rating" value="2">
-  <label class="form-check-label" for="rating">2</label>
+  <input class="form-check-input" type="radio" name="rate" value="2">
+  <label class="form-check-label" for="rate">2</label>
 </div>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="rating" value="3">
-  <label class="form-check-label" for="rating">3</label>
+  <input class="form-check-input" type="radio" name="rate" value="3">
+  <label class="form-check-label" for="rate">3</label>
 </div>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="rating" value="4">
-  <label class="form-check-label" for="rating">4</label>
+  <input class="form-check-input" type="radio" name="rate" value="4">
+  <label class="form-check-label" for="rate">4</label>
 </div>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="rating" value="5">
-  <label class="form-check-label" for="rating">5 </label>
+  <input class="form-check-input" type="radio" name="rate" value="5">
+  <label class="form-check-label" for="rate">5 </label>
   <input hidden="true" name="recipeId"  value="${recipe.id}">
   <input hidden="true" name="userId"  value="${loggedInUser.id}">
   <input type="submit" value="Submit Rating">

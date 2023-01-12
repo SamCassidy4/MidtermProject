@@ -4,6 +4,8 @@ import com.skilldistillery.mealmagic.entities.Rating;
 
 public interface RatingDAO {
 	
-	public Rating createRating(Integer rating, int userId, int recipeId);
+	public Rating createRating(Rating rating);
+	
+	public int averageRating(int RecipeId);
 
 }
