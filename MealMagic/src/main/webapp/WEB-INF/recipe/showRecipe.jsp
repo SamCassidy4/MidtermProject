@@ -128,7 +128,34 @@
 			<input type="submit" value="Submit Comment">
 	</form>
 	</div>
-
+	
+	
+<!-- RATING HERE -->
+ <form action="rate.do" method="GET">
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="rating" value="1">
+  <label class="form-check-label" for="rating">1</label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="rating" value="2">
+  <label class="form-check-label" for="rating">2</label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="rating" value="3">
+  <label class="form-check-label" for="rating">3</label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="rating" value="4">
+  <label class="form-check-label" for="rating">4</label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="rating" value="5">
+  <label class="form-check-label" for="rating">5 </label>
+  <input hidden="true" name="recipeId"  value="${recipe.id}">
+  <input hidden="true" name="userId"  value="${loggedInUser.id}">
+  <input type="submit" value="Submit Rating">
+</div>
+</form> 
 
 	</div>
 
