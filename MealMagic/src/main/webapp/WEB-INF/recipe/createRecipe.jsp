@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html >
 <head>
 <meta charset="UTF-8">
 <title>Create Recipe</title>
@@ -9,12 +9,11 @@
 <link href="css/style.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
-<body>
-<h1>Create A New Recipe</h1>
+<body class="createRecipePage">
+<h1 id="formCreateRecipe-h1">Create A New Recipe</h1>
 
-<!-- FIXME!! unable to create new recipe due to country_id cannot be null -->
 
-<form action="create.do" method="GET">
+<form action="create.do" method="GET" id="formCreateRecipe">
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="name">Name</label>
@@ -113,43 +112,47 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" 
 integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </form>
-
+<section>
+<br>
+<div style="float:left;">
   <form action="createCountryPage.do" method="GET">
 		<input type="text" hidden="true" name="id"  value="${recipe.id}">
 		<input type="submit" value="Create A New Country For Recipe">
 </form>
-	<br>
-	
+</div>
+<div style="float:middle;">
 	<form action="showListCountry.do" method="GET">
 		<input type="text" hidden="true" name="id"  value="${recipe.id}">
 		<input type="submit" value="Show A List Of Countries For Recipes">
 	</form>
-	
+</div>	
 	<br>
-	
+	<div style="float:left;">
 	 <form action="createCategoryPage.do" method="GET">
 		<input type="text" hidden="true" name="id"  value="${category.id}">
 		<input type="submit" value="Add A New Category For Recipe">
      </form>
-     <br>
-     
+     </div>	
+     <div style="float:middle;">
      <form action="showListCategory.do" method="GET">
 		<input type="text" hidden="true" name="id"  value="${recipe.id}">
 		<input type="submit" value="Show A List Of Categories">
 	</form>
+	 </div>	
 	<br>
-	
+	<div style="float:left;">
 	 <form action="createDpPage.do" method="GET">
 		<input type="text" hidden="true" name="id"  value="${dp.id}">
 		<input type="submit" value="Add A New Dietary Preference">
      </form>
-     <br>
-     
+     </div>	
+     <div style="float:middle;">
      <form action="showListDp.do" method="GET">
 		<input type="text" hidden="true" name="id"  value="${dietaryPreference.id}">
 		<input type="submit" value="Show A List Of Dietary Preferences">
 	</form>
-	<br>
+	 </div>	
+</section>
    
 </body>
 </html>

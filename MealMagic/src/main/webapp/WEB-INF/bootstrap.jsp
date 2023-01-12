@@ -11,8 +11,9 @@
 <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
+<br>
 
-<nav id=NavBar class="navbar navbar-expand-lg bg">
+<nav id="NavBar" class="navbar navbar-expand-lg bg">
   <div class="container-fluid">
     <a class="navbar-brand" href="home.do">Home</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,7 +41,7 @@
     </div>
   </div>
 </nav>
-
+<br>
 
 </body>
 </html>

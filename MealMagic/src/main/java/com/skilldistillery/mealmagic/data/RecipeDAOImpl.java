@@ -42,7 +42,7 @@ public class RecipeDAOImpl implements RecipeDAO {
 	}
 
 	@Override
-	public boolean deleteRecipe(int recipeId) {
+	public boolean deleteRecipe(int recipeId, Recipe enabled) {
 		boolean recipeWasDeleted = false;
 		Recipe recipe = em.find(Recipe.class, recipeId);
 		if (recipe != null) {

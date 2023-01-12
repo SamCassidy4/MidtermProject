@@ -11,6 +11,8 @@
 </head>
 <body class ="listPage">
 <div>
+<body id="listRecipe">
+<div class="container" id="result-listRecipe">
 <h1>List of All Recipes</h1>
 
 	<c:choose>
@@ -23,6 +25,8 @@
 				<thead>
 					<tr>
 						<th>Recipe List</th>
+						<!-- <th>ID</th> -->
+						<!-- <th>Recipe List</th> -->
 
 					</tr>
 				</thead>

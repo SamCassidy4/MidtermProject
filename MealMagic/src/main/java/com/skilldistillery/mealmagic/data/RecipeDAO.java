@@ -9,7 +9,7 @@ public interface RecipeDAO {
 
 public Recipe findById (int recipeId);
 
-public boolean deleteRecipe(int recipeId);
+public boolean deleteRecipe(int recipeId, Recipe enabled);
 
 public Recipe updateRecipe(int recipeId, Recipe recipe);
 
