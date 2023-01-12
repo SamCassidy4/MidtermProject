@@ -172,7 +172,7 @@ DROP TABLE IF EXISTS `rating` ;
 
 CREATE TABLE IF NOT EXISTS `rating` (
   `rating` INT NULL,
-  `recipe_id` INT NOT NULL AUTO_INCREMENT,
+  `recipe_id` INT NOT NULL,
   `user_id` INT NOT NULL,
   `rate_comment` INT NULL,
   INDEX `fk_Rating_recipe1_idx` (`recipe_id` ASC),
