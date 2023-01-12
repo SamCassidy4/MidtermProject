@@ -1,5 +1,6 @@
 package com.skilldistillery.mealmagic.data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -89,7 +90,13 @@ public class IngredientDAOimpl implements IngredientDAO {
 
 		}
 		List<Recipe> recipes = tq.getResultList();
-		return recipes;
+		List<Recipe> finalRecipes = new ArrayList<>();
+		for (Recipe recipe : recipes) {
+			if(recipe.isEnabled() == true) {
+			}
+			finalRecipes.add(recipe);
+		}
+		return finalRecipes;
 
 	}
 }

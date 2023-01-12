@@ -37,17 +37,18 @@ public class RecipeDAOImpl implements RecipeDAO {
 			recipe.addCategory(c);
 		}
 		
+		
 		em.persist(recipe);
 		return recipe;
 	}
 
 	@Override
-	public boolean deleteRecipe(int recipeId, Recipe enabled) {
+	public boolean deleteRecipe(int recipeId) {
 		boolean recipeWasDeleted = false;
 		Recipe recipe = em.find(Recipe.class, recipeId);
-		if (recipe != null) {
-			em.remove(recipe);
-			recipeWasDeleted = !em.contains(recipe);
+		recipe.setEnabled(false);
+		if(recipe.isEnabled() == false) {
+			recipeWasDeleted = true;
 		}
 
 		return recipeWasDeleted;
@@ -78,7 +79,7 @@ public class RecipeDAOImpl implements RecipeDAO {
 
 	@Override
 	public List<Recipe> findByKeyword(String keyword) {
-		String query = "SELECT r FROM Recipe r WHERE r.name LIKE :nameR";
+		String query = "SELECT r FROM Recipe r WHERE r.name LIKE :nameR AND enabled = 1";
 		List<Recipe> recipe = em.createQuery(query, Recipe.class).setParameter("nameR", "%" + keyword + "%")
 				.getResultList();
 		return recipe;
@@ -86,7 +87,7 @@ public class RecipeDAOImpl implements RecipeDAO {
 
 	@Override
 	public List<Recipe> findAll() {
-		String query = "SELECT r FROM Recipe r";
+		String query = "SELECT r FROM Recipe r WHERE enabled = 1";
 		List<Recipe> recipes = em.createQuery(query, Recipe.class).getResultList();
 		return recipes;
 	}

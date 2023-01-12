@@ -28,9 +28,7 @@ public class Recipe {
 		return recipeIngredients;
 	}
 
-	public void setRecipeIngredients(List<RecipeIngredient> recipeIngredients) {
-		this.recipeIngredients = recipeIngredients;
-	}
+	private boolean enabled = true;
 
 	private String name;
 	
@@ -307,6 +305,17 @@ public class Recipe {
 				+ ", cookingInstructions=" + cookingInstructions + ", numberOfServing=" + numberOfServing
 				+ ", calories=" + calories + ", prepTime=" + prepTime + ", yield=" + yield + ", notes=" + notes
 				+ ", cookTime=" + cookTime + "]";
+	}
+	public void setRecipeIngredients(List<RecipeIngredient> recipeIngredients) {
+		this.recipeIngredients = recipeIngredients;
+	}
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
 	}
 
 	@Override
