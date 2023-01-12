@@ -51,3 +51,13 @@ background-size: cover;
 	font-weight: bold;
 	font-size: 25px;
 }
+
+#createAccount{
+	background-color: ghostwhite;
+}
+
+#favoriteView{
+	background-image: url(https://media.istockphoto.com/id/1296450286/photo/wood-table-top-on-blur-kitchen-room-counter-background.jpg?b=1&s=170667a&w=0&k=20&c=2gc51OZS9naurIBYpqECKOc2XFLhV93qSlLAHpjxdDo=);
+background-repeat: no-repeat;
+background-size: cover;
+}
