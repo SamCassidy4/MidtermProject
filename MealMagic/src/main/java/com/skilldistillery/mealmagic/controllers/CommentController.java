@@ -22,54 +22,36 @@ import com.skilldistillery.mealmagic.entities.User;
 @Controller
 public class CommentController {
 
-@Autowired
-private CommentDAO commentDAO;
+	@Autowired
+	private CommentDAO commentDAO;
 
-@Autowired
-private RecipeDAO recipeDAO;
+	@Autowired
+	private RecipeDAO recipeDAO;
 
-@Autowired
-private UserDAO userDAO;
+	@Autowired
+	private UserDAO userDAO;
 
-@RequestMapping(path = "addComment.do", method = RequestMethod.POST)
-public String addComment(Comment comment, Model model) {
-	
-	comment.setPostedDate(LocalDateTime.now());
-	
-	Comment addedComment = commentDAO.addComment(comment);
-	
-	Recipe recipe  = recipeDAO.findById(addedComment.getRecipe().getId());
-	
-	model.addAttribute("recipe", recipe);
-	
-	return "recipe/showRecipe";
-	
-}
-	
-@RequestMapping(path = "addedComment.do", method = RequestMethod.GET)
-public String addComment(HttpSession session) {
+	@RequestMapping(path = "addComment.do", method = RequestMethod.POST)
+	public String addComment(Comment comment, Model model) {
 
-	User user1 = (User) session.getAttribute("loggedInUser");
+		comment.setPostedDate(LocalDateTime.now());
 
-	User user = userDAO.findById(user1.getId());
+		Comment addedComment = commentDAO.addComment(comment);
 
-	session.setAttribute("loggedInUser", user);
-	 
-	
-	
-	
+		Recipe recipe = recipeDAO.findById(addedComment.getRecipe().getId());
 
-return "recipe/showRecipe";
+		model.addAttribute("recipe", recipe);
 
-}
-@RequestMapping("deleteComment.do")
-public String deleteComment(Model model, int commentId, HttpSession session) {
-	
-	boolean deletedComment = commentDAO.deleteComment(commentId);
+		return "recipe/showRecipe";
+	}
 
-	model.addAttribute("deletedComment", deletedComment);
-	
-	return "comment/deletedComment";
-}
+	@RequestMapping("deleteComment.do")
+	public String deleteComment(Model model, int commentId, HttpSession session, int recipeId) {
+		boolean deletedComment = commentDAO.deleteComment(commentId);
+		model.addAttribute("deletedComment", deletedComment);
+		Recipe recipe = recipeDAO.findById(recipeId);
+		model.addAttribute("recipe", recipe);
+		return "recipe/showRecipe";
+	}
 
 }
