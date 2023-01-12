@@ -46,7 +46,7 @@
     
      <div class="form-group col-md-4">
       <label for="category">Category</label>
-      <select name="categoryCollection" class="form-control">
+      <select name="category" class="form-control">
         <option selected>Select a Category</option>
       <c:forEach var="c" items="${categories}">
         <option value="${c.id} ">${c.name}</option>
@@ -54,10 +54,9 @@
       </select>
     </div>
     
-    
      <div class="form-group col-md-4">
       <label for="dietaryPreference">Dietary Preference</label>
-      <select name="dietaryPreferenceCollection" class="form-control">
+      <select name="dietaryPreference" class="form-control">
         <option selected>Select a Dietary Preference</option>
       <c:forEach var="d" items="${dietaryPreferences}">
         <option value="${d.id} ">${d.name}</option>

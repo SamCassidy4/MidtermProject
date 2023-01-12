@@ -108,6 +108,16 @@ public class Recipe {
 		}
 	}
 	
+	public void addRating(Rating rating) {
+		if(ratings == null) {
+			ratings = new ArrayList<>();
+		}
+		if(!ratings.contains(rating)) {
+			ratings.add(rating);
+		}
+	}
+	
+	
 	
 	
 	public User getUser() {
