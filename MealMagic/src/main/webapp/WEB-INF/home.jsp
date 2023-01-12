@@ -68,7 +68,7 @@
 </div>
 <br>
 <br>
-<h2>
+<h2 class="ingredientList">
 Search For A Recipe Using Ingredients
  </h2>
  <br>
@@ -129,6 +129,7 @@ Search For A Recipe Using Ingredients
   <input class="form-check-input" type="checkbox" value="cooking oil" name="keyword" for="keyword"/>
   <label class="form-check-label">Cooking Oil</label>
 </div>
+<br>
 <br>
 <button type="submit" class="btn btn-outline-primary">Submit</button>
 </form>
