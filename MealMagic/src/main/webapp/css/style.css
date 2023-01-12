@@ -87,3 +87,21 @@ background-repeat: no-repeat;
 background-size: cover;
 }
 
+#showIngredients{
+	background-image: url(https://media.istockphoto.com/id/1317427168/photo/wooden-background.jpg?b=1&s=170667a&w=0&k=20&c=p3xHHSls-qCHPuU2x8TnzzONHtRj7kGLHj2ZjTaC9zY=);
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+#showRecipe{
+	background-image: url(https://i.pinimg.com/236x/30/92/54/309254c0ccca39aa127e28339af46e28.jpg);
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+#login{
+	background-image: url(https://img.freepik.com/free-photo/healthy-diet-background-with-thyme-leaf-border_53876-106117.jpg?w=2000);
+background-repeat: no-repeat;
+background-size: full;
+}
+
