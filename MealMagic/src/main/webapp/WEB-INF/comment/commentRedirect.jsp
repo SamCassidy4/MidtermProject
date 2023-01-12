@@ -8,13 +8,13 @@
 <%@ include file="../bootstrap.jsp"%>
 </head>
 <body>
-	<c:redirect>
 	<c:redirect context="addedComment.do">
+	</c:redirect>
 				
 			</table>
-		</c:otherwise>
+	<%-- 	</c:otherwise>
 	</c:choose>
-	</div>
+	</div> --%>
 </body>
 </html>
 
