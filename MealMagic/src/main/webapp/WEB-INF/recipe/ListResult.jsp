@@ -9,8 +9,8 @@
 <link href="css/style.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
-<body>
-<div class="container">
+<body id="listRecipe">
+<div class="container" id="result-listRecipe">
 <h1>List of All Recipes</h1>
 
 
@@ -24,7 +24,7 @@
 				<thead>
 					<tr>
 						<!-- <th>ID</th> -->
-						<th>Recipe List</th>
+						<!-- <th>Recipe List</th> -->
 
 					</tr>
 				</thead>

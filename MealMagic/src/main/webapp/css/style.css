@@ -4,3 +4,50 @@
 body{
 	margin: auto;
 }
+
+
+.createRecipePage{
+	background-image: url(https://images.pexels.com/photos/1565982/pexels-photo-1565982.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+	
+	background-repeat: no-repeat;
+background-size: cover;
+	
+}
+
+#NavBar{
+	 text-align: center;
+	font-size: 20px;
+    font-weight: bold;
+    background-color:burlywood;
+   outline: 8px ridge rgb(205,133,63);
+	
+}
+
+#formCreateRecipe{
+	font-weight: bold;
+	color: white;
+}
+
+#formCreateRecipe-h1{
+	font-weight: bold;
+	color: white;
+}
+
+#home{
+	background-image: url(https://media.istockphoto.com/id/1317427168/photo/wooden-background.jpg?b=1&s=170667a&w=0&k=20&c=p3xHHSls-qCHPuU2x8TnzzONHtRj7kGLHj2ZjTaC9zY=);
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+#listRecipe{
+	background-image: url(https://media.istockphoto.com/id/1317427168/photo/wooden-background.jpg?b=1&s=170667a&w=0&k=20&c=p3xHHSls-qCHPuU2x8TnzzONHtRj7kGLHj2ZjTaC9zY=);
+background-repeat: no-repeat;
+background-size: cover;
+
+
+}
+
+#result-listRecipe{
+	font-weight: bold;
+	font-size: 25px;
+}
