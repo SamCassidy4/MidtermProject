@@ -24,7 +24,6 @@
 			<table class="center">
 				<thead>
 					<tr>
-						<th>Recipe List</th>
 						<!-- <th>ID</th> -->
 						<!-- <th>Recipe List</th> -->
 
