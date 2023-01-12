@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `password` VARCHAR(45) NOT NULL,
   `enabled` TINYINT NULL,
   `role` VARCHAR(45) NULL,
-  `created_date` DATETIME NOT NULL,
+  `created_date` DATETIME NULL,
   `last_updated` DATETIME NULL,
   `first_name` VARCHAR(45) NOT NULL,
   `last_name` VARCHAR(45) NOT NULL,
@@ -171,8 +171,8 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `rating` ;
 
 CREATE TABLE IF NOT EXISTS `rating` (
-  `rating` INT NOT NULL,
-  `recipe_id` INT NOT NULL AUTO_INCREMENT,
+  `rating` INT NULL,
+  `recipe_id` INT NOT NULL,
   `user_id` INT NOT NULL,
   `rate_comment` INT NULL,
   INDEX `fk_Rating_recipe1_idx` (`recipe_id` ASC),
@@ -348,9 +348,6 @@ INSERT INTO `recipe` (`id`, `name`, `description`, `country_id`, `image_url`, `c
 INSERT INTO `recipe` (`id`, `name`, `description`, `country_id`, `image_url`, `cooking_instructions`, `number_of_serving`, `user_id`, `calories`, `prep_time`, `yield`, `notes`, `cook_time`) VALUES (10, 'Rose Water Rice Pudding', 'Rose water rice pudding is a popular Middle Eastern treat. Pomegranate seeds and chopped pistachios add a simple yet elegant touch to this floral Lebanese specialty', 7, 'https://i0.wp.com/portandfin.com/wp-content/uploads/2016/02/RosewaterRicePudding2.jpg', 'In a heavy saucepan, combine water and rice; bring to a boil over medium heat. Reduce heat; cover and simmer until water is absorbed, about 15 minutes. Add cream and sugar; bring to a boil. Reduce heat; simmer, uncovered, until slightly thickened, 30-40 minutes. Stir in rose water. Refrigerate until chilled, at least 2 hours. Stir in additional cream to reach desired consistency. If desired, top with pomegranate seeds and pistachios', '14', 1, 281, '30 mins', '1 pan', 'You can use leftover rice to make this, so it’s a great way to use up a big batch of cooked rice', '1 hour');
 INSERT INTO `recipe` (`id`, `name`, `description`, `country_id`, `image_url`, `cooking_instructions`, `number_of_serving`, `user_id`, `calories`, `prep_time`, `yield`, `notes`, `cook_time`) VALUES (11, 'Key Lime Pie ', 'This key lime pie is an American classic. Ours is made with lime juice and sweetened condensed milk in a graham cracker crust and topped with whipped cream. Use key limes if you have them, otherwise substitute regular limes.', 1, 'https://www.simplyrecipes.com/thmb/JViE9z05SrKxys9F-e7Vo_8lqrk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2016__05__key-lime-pie-vertical-a-1600-077e4901c50840f4adb000c989d974d0.jpg', 'In a large bowl, beat cream cheese until smooth. Beat in milk and lime juice until blended. Transfer to crust. Refrigerate, covered at least 4 hours. Just before serving, garnish with whipped topping and if desired, lime slices', '8', 1, 417, '30 mins', '1 pie', 'Key limes are great if you can get them! They\'re from the Florida Keys, where they now grow wild. They are smaller and more tart than our standard Persian limes, and they have yellow centers and rinds', '1 hour');
 INSERT INTO `recipe` (`id`, `name`, `description`, `country_id`, `image_url`, `cooking_instructions`, `number_of_serving`, `user_id`, `calories`, `prep_time`, `yield`, `notes`, `cook_time`) VALUES (12, 'Preztel Gelatin Dessert', 'The salty pretzel crust is the perfect complement to the sweet cream cheese filling', 1, 'https://www.simplyhappyfoodie.com/wp-content/uploads/2019/05/strawberry-pretzel-jello-salad-2.jpg', 'Preheat oven to 350. Mix crushed pretzels, melted butter and sugar; press onto bottom of an ungreased 13x9-in baking dish. Bake 10 minutes. Cool completely\nFor filling, beat cream cheese and sugar until smooth. Stir in whipped topping; spread over crust. Refrigerate, covered, until cold\nIn a small bowl, dissolve gelatin in boiling water. Stir in cold water; refrigerate until partially set. Pour carefully over filling. Refrigerate, covered, until firm, 4 -6 hours.\nCut into squares. If desired, serve with strawberries and additional whipped topping', '12', 1, 401, '35 mins', '1 pan', 'place pretzel in a zip bag and beat them as a trick', '45 mins');
-INSERT INTO `recipe` (`id`, `name`, `description`, `country_id`, `image_url`, `cooking_instructions`, `number_of_serving`, `user_id`, `calories`, `prep_time`, `yield`, `notes`, `cook_time`) VALUES (13, 'Cherry Pie ', 'This is to be deleted', 1, NULL, 'cbebhef cherry cherry', '45', 1, 345, '12', 'df', 'efrw', '12');
-INSERT INTO `recipe` (`id`, `name`, `description`, `country_id`, `image_url`, `cooking_instructions`, `number_of_serving`, `user_id`, `calories`, `prep_time`, `yield`, `notes`, `cook_time`) VALUES (14, 'Pudding', 'To be deleted ', 1, NULL, 'efree', '56', 1, 456, '34', 'fx', 'dvfze', '23');
-INSERT INTO `recipe` (`id`, `name`, `description`, `country_id`, `image_url`, `cooking_instructions`, `number_of_serving`, `user_id`, `calories`, `prep_time`, `yield`, `notes`, `cook_time`) VALUES (15, 'Pizza', 'to be deleted', 1, NULL, 'vejir', '45', 1, NULL, NULL, NULL, NULL, NULL);
 
 COMMIT;
 
