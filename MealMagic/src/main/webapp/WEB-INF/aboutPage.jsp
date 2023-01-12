@@ -14,5 +14,20 @@
 
 <h2> We will add something here when we are almost done with our project </h2>
 
+
+
+
+<p>
+<strong>Kna Kong</strong>
+<br>
+
+Our team spent a tumultuous during week sprint for Meal Magic. Jumping into the deep end sometimes is worth it.
+For this project, I'ved learned a great deal. When I'm not learning a new stack or spending hours peer-programming, you can find me looking for another adventure with an endless list of hobbies.
+My passion is gathering new experiences and getting good at everything. Thanks for checkout our project!
+
+
+
+</p>
+
 </body>
 </html>
