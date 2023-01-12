@@ -17,7 +17,20 @@ Github: https://github.com/Knakong
 # Implementation
 
 # Technologies and Methodologies Used
-
+- Java
+- MySQL
+- MySQL workbench
+- HTML
+- CSS
+- SpringBoot
+- Bootstrap
+- Spring Tool Suite
+- Github
+- Trello
+- JPQL
+- Gradle
+- MAMP
+- 
 
 # Lesson Learned 
 
