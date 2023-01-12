@@ -112,7 +112,8 @@
 
 		<form action="deleteComment.do" method="POST">
 		<input hidden="true" for="commentId" name="commentId" value="${comment.id}">
-
+		<input hidden="true" for="recipeId" name="recipeId" value="${recipe.id}">
+		
 		<input type="submit" value="delete">
 		</form>
 		
