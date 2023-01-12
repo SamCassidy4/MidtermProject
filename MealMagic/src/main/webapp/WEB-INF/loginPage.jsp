@@ -9,9 +9,7 @@
 <link href="css/style.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
-<body>
-<h1>Login</h1>
-
+<body class ="loginPage">
 <section class="h-100 gradient-form" style="background-color: #eee;">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -24,7 +22,7 @@
                 <div class="text-center">
                   <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
                     style="width: 185px;" alt="logo">
-                  <h4 class="mt-1 mb-5 pb-1">We are Magic Meal</h4>
+                  <h4 class="mt-1 mb-5 pb-1">Login</h4>
                 </div>
 
                 <form action="login.do" method="post">
@@ -33,27 +31,20 @@
                   <div class="form-outline mb-4">
                     
                     <input type="text" name="username" class="form-control"
-                      placeholder="Phone number or email address" />
-                    <label class="form-label" for="username">Username</label>
+                      placeholder="username" />
+                    <label class="form-label" for="username"></label>
                   </div>
 
                   <div class="form-outline mb-4">
-                    <input type="text" name="password" class="form-control" />
-                    <label class="form-label" for="password">Password</label>
+                    <input type="text" name="password" class="form-control" placeholder="password" />
+                    <label class="form-label" for="password"></label>
                   </div>
 
                   <div class="text-center pt-1 mb-5 pb-1">
                     <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Log
                       in</button>
-                    <a class="text-muted" href="#!">Forgot password?</a>
                   </div>
 
-                  <div class="d-flex align-items-center justify-content-center pb-4">
-                    <p class="mb-0 me-2">Don't have an account?</p>
-                  <!--   <form action="createNewUserPage.do" method="GET"> COMEBACK FIXME MAYBE???-->
-                    <button type="submit" class="btn btn-outline-danger">Create new</button>
-                    </form>
-                  </div>
 
                 </form>
 

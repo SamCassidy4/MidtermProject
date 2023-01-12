@@ -6,13 +6,13 @@
 <meta charset="UTF-8">
 <title>New User</title>
 <%@ include file="../bootstrap.jsp"%>
+<link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-<h1>Create A New Account</h1>
 
 
 <section class="vh-100 bg-image"
-  style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
+  style="background-image: url('https://img.freepik.com/free-photo/healthy-diet-background-with-thyme-leaf-border_53876-106117.jpg?w=2000');">
   <div class="mask d-flex align-items-center h-100 gradient-custom-3">
     <div class="container h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
@@ -25,12 +25,12 @@
 
                 <div class="form-outline mb-4">
                   <input type="text" name="firstName" class="form-control form-control-lg" />
-                  <label class="firstName" for="firstName">Your Name</label>
+                  <label class="firstName" for="firstName">First Name</label>
                 </div>
 
                 <div class="form-outline mb-4">
                   <input type="text" name="lastName" class="form-control form-control-lg" />
-                  <label class="lastName" for="lastName">Your Last Name</label>
+                  <label class="lastName" for="lastName"> Last Name</label>
                 </div>
 
                 <div class="form-outline mb-4">

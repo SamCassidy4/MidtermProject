@@ -1,6 +1,25 @@
 @charset "UTF-8";
 
 
-body{
-	margin: auto;
+body{ font-family: "Times New Roman", Georgiea, Serif;
+margin: auto;
+
+}
+h1, h2, h3, h4, h5, h6{
+	font-family: "Playfair Display";
+	Letter-spacing: 1px;
+}
+imageUrl{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+}
+.listPage{
+	text-align: center;
+	
+}
+table.center{
+	margin-left:auto;
+	margin-right:auto;
 }
