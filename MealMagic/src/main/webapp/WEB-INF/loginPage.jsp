@@ -39,7 +39,7 @@
                   </div>
 
                   <div class="form-outline mb-4">
-                    <input type="text" name="password" class="form-control" placeholder="password" />
+                    <input type="password" name="password" class="form-control" placeholder="password" />
                     <label class="form-label" for="password"></label>
                   </div>
 

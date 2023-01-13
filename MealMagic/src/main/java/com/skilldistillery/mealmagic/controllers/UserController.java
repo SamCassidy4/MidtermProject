@@ -118,7 +118,14 @@ public class UserController {
 	}
 
 	@RequestMapping(path = "uploadrecipes.do")
-	public String uploadRecipe(Model model) {
+	public String uploadRecipe(Model model, HttpSession session) {
+		
+		if (session.getAttribute("loggedInUser") == null) {
+
+			return "loginPage";
+		}
+			else {
+		
 		List<Country> countries = countryDao.findAll();
 		List<Category> categories = categoryDao.findAll();
 		List<DietaryPreference> dp = dpDao.findAll();
@@ -127,7 +134,7 @@ public class UserController {
 		model.addAttribute("dietaryPreferences", dp);
 		return "recipe/createRecipe";
 
-	}
+	}}
 
 	@RequestMapping(path = "viewfavorites.do")
 	public String favorites(Model model, HttpSession session) { // going to need to take in a User

@@ -31,19 +31,17 @@ what you see here.
 </div>
 
 
-
-<p>
-<strong>Kna Kong</strong>
 <br>
-
+<h3>Kna Kong</h3>
+<p>
 Our team spent a tumultuous week sprinting for Meal Magic. Jumping into the deep end sometimes is worth it.
 For this project, I'ved learned a great deal. When I'm not learning a new stack or spending hours peer-programming, you can find me looking for another adventure with an endless list of hobbies.
-My passion is gathering new experiences and getting good at everything. Thanks for checkout our project!
-
-
+My passion is gathering new experiences and getting good at everything. Thanks for checking out our project!
+<br>
+<a href="https://github.com/Knakong"> Kna's GitHub</a>
 
 </p>
-
+<br>
 <h3> Pamela Leon </h3>
 <p>
 Hi, I'm Pamela Leon and I currently reside in Colorado where I was born and raised. Before joining the program my main background was being
