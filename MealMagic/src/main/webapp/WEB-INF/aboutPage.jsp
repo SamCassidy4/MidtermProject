@@ -32,11 +32,6 @@ what you see here.
 
 
 
-
-
-
-
-
 <p>
 <strong>Kna Kong</strong>
 <br>
