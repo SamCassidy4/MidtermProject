@@ -47,8 +47,15 @@ When user is done they can simple log out and all of their changes are saved.
 - MAMP
 
 # Lesson Learned 
-
-
+- One of the biggest challenges was being able to have the user find recipes by using single ingredients. How we overcame that was passing in a String array and iterating over the array using for loops instead of for each. For the query, we used DISTINCT to narrow down our search and also used EXSIST  to be able to find like wise ingredients from already exsisting recipes. 
+Example: 
+"SELECT DISTINCT r FROM Recipe r";
+" JOIN RecipeIngredient ri" + i + " ON r.id = ri" + i + ".recipe.id";
+" EXISTS (SELECT i FROM Ingredient i WHERE i.name LIKE :name" + i + " AND i.id = ri" + i
+					+ ".ingredient.id)";
+          
+- Another challange for us that we discovered down the road was when we implemented dietary preferences and category on create recipe, it was not showing when the user went back to look at their newly created recipe. We saw that the reason why country was showing was because the recipe table had country_id already where category and dietary_preference did not, they had a one-to-many relationship with recipe. So we decided that in our Recipe Database Accessesor Implemation class that in our createRecipe method we need to specifically add that category and dietary preference needed to be included when the new recipe was created. Using a String array for each one we iterated over them using a foreach and using Entity Manager to find the class and parse it into a string argument. Then adding each of them to recipe, solving our problem and now user can view category and dietary preference when they create a new recipe.       
+      
 # How to Download and Run 
 
 
