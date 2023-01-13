@@ -29,6 +29,8 @@ When user is done they can simple log out and all of their changes are saved.
   
 # Implementation
 
+![image](https://user-images.githubusercontent.com/113270980/212324704-4b7938ec-c957-4bed-83f7-067b3a3ee714.png)
+
 # Technologies and Methodologies Used
 - Java
 - MySQL
@@ -49,8 +51,6 @@ When user is done they can simple log out and all of their changes are saved.
 
 # How to Download and Run 
 
-# Database Design
-![image](https://user-images.githubusercontent.com/113270980/212324704-4b7938ec-c957-4bed-83f7-067b3a3ee714.png)
 
 
 
