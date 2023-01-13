@@ -49,5 +49,14 @@ My passion is gathering new experiences and getting good at everything. Thanks f
 
 </p>
 
+<h3> Pamela Leon </h3>
+<p>
+Hi, I'm Pamela Leon and I currently reside in Colorado where I was born and raised. Before joining the program my main background was being
+in the medical field. I always wanted to get myself into the tech world but never knew where to start until I enrolled into Skill Distillery. Being in the program with 
+zero coding experience has been a challenge but each topic that we learn in class each day has me more excited to become a full-stack developer. I love the technical and philosophical perspective of coding and I am looking 
+forward to entering the software developer world. Thank you for taking a look a our website!
+</p>
+<a href="https://github.com/pamelaleon"> Pamela's GitHub Profile</a>
+<br>
 </body>
 </html>
