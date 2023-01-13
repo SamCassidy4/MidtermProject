@@ -121,12 +121,6 @@ integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+
 		<input type="submit" value="Create A New Country For Recipe">
 </form>
 </div>
-<div style="float:middle;">
-	<form action="showListCountry.do" method="GET">
-		<input type="text" hidden="true" name="id"  value="${recipe.id}">
-		<input type="submit" value="Show A List Of Countries For Recipes">
-	</form>
-</div>	
 	<br>
 	<div style="float:left;">
 	 <form action="createCategoryPage.do" method="GET">
@@ -134,25 +128,13 @@ integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+
 		<input type="submit" value="Add A New Category For Recipe">
      </form>
      </div>	
-     <div style="float:middle;">
-     <form action="showListCategory.do" method="GET">
-		<input type="text" hidden="true" name="id"  value="${recipe.id}">
-		<input type="submit" value="Show A List Of Categories">
-	</form>
-	 </div>	
-	<br>
+ 	<br>
 	<div style="float:left;">
 	 <form action="createDpPage.do" method="GET">
 		<input type="text" hidden="true" name="id"  value="${dp.id}">
 		<input type="submit" value="Add A New Dietary Preference">
      </form>
      </div>	
-     <div style="float:middle;">
-     <form action="showListDp.do" method="GET">
-		<input type="text" hidden="true" name="id"  value="${dietaryPreference.id}">
-		<input type="submit" value="Show A List Of Dietary Preferences">
-	</form>
-	 </div>	
 </section>
    
 </body>
