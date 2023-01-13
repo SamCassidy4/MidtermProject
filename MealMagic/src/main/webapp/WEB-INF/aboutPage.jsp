@@ -9,7 +9,7 @@
 <link href="css/style.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
-<body>
+<body id="about">
 <h1>About</h1>
 
 <p> Welcome to our website "MealMagic" we created this website as a midterm project for our class Skill Distillery. This project tested our full stack skills using the lessons we learned over the course of some months.
