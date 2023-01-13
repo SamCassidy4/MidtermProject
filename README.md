@@ -1,5 +1,7 @@
 # MidtermProject - MealMagic
 
+http://54.244.123.27:8080/MealMagic/
+
 # Team Members: 
 - Pamela Leon: (Developer, DBA and Scrum Master) 
 GitHub: https://github.com/pamelaleon
